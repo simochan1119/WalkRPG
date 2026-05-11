@@ -1,0 +1,10 @@
+# ninja log v5
+128	7021	8000882200765224	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	280c7f592a3ccbeb
+146	7055	8000882200998176	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	c311b11e8eb55e4a
+80	7087	8000882201387795	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	7eee86c120f666e7
+172	7103	8000882201448151	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	eae2f33292853613
+1	7214	8000882202738662	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	5dd5a20ee0ced48a
+201	7631	8000882206952135	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	3ac99f67a082d9b6
+111	7757	8000882208193902	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	473749d146228d46
+94	7943	8000882209964785	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	4bf4aa23af7a00b0
+7944	8237	8000882213002620	C:/Users/simochan/Documents/GitHub/WalkRPG/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/8n6j3010/obj/arm64-v8a/libgame.so	2de7ab3ef1875fed
