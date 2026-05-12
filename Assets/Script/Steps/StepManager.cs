@@ -13,10 +13,10 @@ public class StepManager : MonoBehaviour
     private AndroidJavaObject stepSensor;
     private StepListener stepListener;
 #endif
-
+#pragma warning disable CS0414
     private int lastSensorValue = -1;
+#pragma warning restore CS0414
     private float lastStepTime;
-
     public float stopDelay = 1f;
 
     void Awake()

@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class StepListener :
-    AndroidJavaProxy
+public class StepListener : AndroidJavaProxy
 {
     public int CurrentSteps { get; private set; }
 
@@ -10,18 +9,16 @@ public class StepListener :
     {
     }
 
-    void onSensorChanged(AndroidJavaObject sensorEvent)
+    public void onSensorChanged(AndroidJavaObject sensorEvent)
     {
-        float[] values =
-            sensorEvent.Get<float[]>("values");
+        float[] values = sensorEvent.Get<float[]>("values");
 
         CurrentSteps = (int)values[0];
+
+        Debug.Log("ÉZÉìÉTÅ[ï‡êî: " + CurrentSteps);
     }
 
-    void onAccuracyChanged(
-        AndroidJavaObject sensor,
-        int accuracy
-    )
+    public void onAccuracyChanged(AndroidJavaObject sensor, int accuracy)
     {
     }
 }
