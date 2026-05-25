@@ -91,6 +91,7 @@ public class FirebaseManager : MonoBehaviour
             uid = User.UserId,
             name = playerName,
             level = CurrentPlayer != null ? CurrentPlayer.level : 1,
+            hp = CurrentPlayer != null ? CurrentPlayer.hp : 30,
             gold = CurrentPlayer != null ? CurrentPlayer.gold : 0,
             steps = CurrentPlayer != null ? CurrentPlayer.steps : 0
         };
@@ -99,5 +100,14 @@ public class FirebaseManager : MonoBehaviour
         CurrentPlayer = data;
 
         Debug.Log("ユーザーデータ保存完了: " + data.name);
+    }
+    public void HealPlayerFull()
+    {
+        if (CurrentPlayer == null) return;
+
+        if (CurrentPlayer.maxHp <= 0)
+            CurrentPlayer.maxHp = 100;
+
+        CurrentPlayer.hp = CurrentPlayer.maxHp;
     }
 }
