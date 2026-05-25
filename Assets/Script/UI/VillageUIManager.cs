@@ -5,6 +5,11 @@ public class VillageUIManager : MonoBehaviour
 {
     [Header("UI")]
     public TMP_Text statusText;
+    public TMP_Text characterName;
+    public TMP_Text characterHp;
+    public TMP_Text characterMp;
+    public TMP_Text characterSteps;
+    public TMP_Text characterMoney;
 
     void Start()
     {
@@ -22,5 +27,15 @@ public class VillageUIManager : MonoBehaviour
             $"LvÅF{player.level}\n" +
             $"GoldÅF{player.gold}\n" +
             $"ï‡êîÅF{player.steps}";
+
+        characterName.text = player.name;
+        //characterHp.text = player.hp; Ç†Ç∆Ç©ÇÁÇ∂Ç¡ÇªÇ§
+        //characterMp.text = player.mp; Ç†Ç∆Ç©ÇÁÇ∂Ç¡ÇªÇ§
+        //characterSteps.text = player.steps.ToString; Ç†Ç∆Ç©ÇÁÇ∂Ç¡ÇªÇ§
+        //characterMoney.text = player.gold;
+
+
+
+
     }
 }
