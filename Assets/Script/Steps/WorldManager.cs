@@ -3,33 +3,28 @@ using UnityEngine;
 public class WorldManager : MonoBehaviour
 {
     public Transform player;
-    public Transform[] worlds; // 3つ入れる
+
+    public Transform worldA;
+    public Transform worldB;
 
     private float width;
 
     void Start()
     {
-        // 1個目の幅を取得
-        Renderer r = worlds[0].GetComponentInChildren<Renderer>();
+        Renderer r = worldA.GetComponentInChildren<Renderer>();
         width = r.bounds.size.x;
     }
 
     void Update()
     {
-        Transform left = worlds[0];
-        Transform center = worlds[1];
-        Transform right = worlds[2];
+        // Aが左、Bが右
+        Transform left = worldA.position.x < worldB.position.x ? worldA : worldB;
+        Transform right = worldA.position.x > worldB.position.x ? worldA : worldB;
 
-        // プレイヤーがcenterを超えたら
-        if (player.position.x > center.position.x)
+        // プレイヤーが右ワールド中央を超えたら
+        if (player.position.x > right.position.x)
         {
-            // leftを右に移動
             left.position = right.position + new Vector3(width, 0, 0);
-
-            // 配列を回す
-            worlds[0] = center;
-            worlds[1] = right;
-            worlds[2] = left;
         }
     }
 }

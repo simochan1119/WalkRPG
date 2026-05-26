@@ -93,7 +93,8 @@ public class FirebaseManager : MonoBehaviour
             level = CurrentPlayer != null ? CurrentPlayer.level : 1,
             hp = CurrentPlayer != null ? CurrentPlayer.hp : 30,
             gold = CurrentPlayer != null ? CurrentPlayer.gold : 0,
-            steps = CurrentPlayer != null ? CurrentPlayer.steps : 0
+            steps = CurrentPlayer != null ? CurrentPlayer.steps : 0,
+            maxHp = CurrentPlayer != null ? CurrentPlayer.maxHp : 30
         };
 
         await docRef.SetAsync(data, SetOptions.MergeAll);
