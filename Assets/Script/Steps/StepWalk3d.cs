@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class StepWalk3D : MonoBehaviour
 {
-    public float stepDistance = 0.5f;
+    [Header("Step Move")]
+    public float stepDistance = 1f;
     public float moveSpeed = 2f;
 
+    [Header("Animation")]
     public Animator animator;
 
     private int lastSteps = 0;
-
     private int pendingSteps = 0;
 
     private Vector3 targetPosition;
@@ -16,6 +17,9 @@ public class StepWalk3D : MonoBehaviour
     void Start()
     {
         targetPosition = transform.position;
+
+        if (animator == null)
+            animator = GetComponent<Animator>();
 
         if (StepManager.Instance != null)
         {
@@ -28,19 +32,16 @@ public class StepWalk3D : MonoBehaviour
         if (StepManager.Instance == null)
             return;
 
-        int currentSteps =
-            StepManager.Instance.CurrentSteps;
+        int currentSteps = StepManager.Instance.CurrentSteps;
 
-        // 新しい歩数検知
         if (currentSteps > lastSteps)
         {
             int diff = currentSteps - lastSteps;
 
             pendingSteps += diff;
-
             lastSteps = currentSteps;
 
-            Debug.Log("pending: " + pendingSteps);
+            Debug.Log("未消化歩数: " + pendingSteps);
         }
 
         bool moving =
@@ -49,8 +50,6 @@ public class StepWalk3D : MonoBehaviour
                 targetPosition
             ) > 0.01f;
 
-        // 移動完了していて、
-        // まだ未消化歩数がある
         if (!moving && pendingSteps > 0)
         {
             pendingSteps--;
@@ -59,7 +58,6 @@ public class StepWalk3D : MonoBehaviour
                 Vector3.right * stepDistance;
         }
 
-        // スムーズ移動
         transform.position =
             Vector3.MoveTowards(
                 transform.position,
@@ -67,9 +65,12 @@ public class StepWalk3D : MonoBehaviour
                 moveSpeed * Time.deltaTime
             );
 
-        animator.SetBool(
-            "Walk",
-            moving || pendingSteps > 0
-        );
+        if (animator != null)
+        {
+            animator.SetBool(
+                "Walk",
+                moving || pendingSteps > 0
+            );
+        }
     }
 }

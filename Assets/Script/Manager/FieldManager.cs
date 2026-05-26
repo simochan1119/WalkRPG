@@ -1,11 +1,10 @@
 using UnityEngine;
 
-
 public class FieldManager : GameSceneManager
 {
-    protected override void OnSceneReady()
+    protected override async void OnSceneReady()
     {
-        FirebaseManager.Instance.HealPlayerFull();
+        await FirebaseManager.Instance.HealPlayerFull();
 
         if (statusUI != null)
             statusUI.Refresh();
