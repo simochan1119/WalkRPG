@@ -68,10 +68,7 @@ public class FirebaseManager : MonoBehaviour
         if (snapshot.Exists)
         {
             CurrentPlayer = snapshot.ConvertTo<PlayerData>();
-
-            // 古いデータ対策
             NormalizePlayerData();
-
             Debug.Log("既存ユーザーデータ読込: " + CurrentPlayer.name);
         }
         else
@@ -84,9 +81,7 @@ public class FirebaseManager : MonoBehaviour
     public async Task CreateOrUpdatePlayer(string playerName)
     {
         if (string.IsNullOrWhiteSpace(playerName))
-        {
             playerName = "ななし勇者";
-        }
 
         PlayerData data = new PlayerData
         {
@@ -106,11 +101,13 @@ public class FirebaseManager : MonoBehaviour
 
             lastSensorSteps = CurrentPlayer != null ? CurrentPlayer.lastSensorSteps : 0,
             todayBaseSensorSteps = CurrentPlayer != null ? CurrentPlayer.todayBaseSensorSteps : 0,
-            lastStepDate = CurrentPlayer != null ? CurrentPlayer.lastStepDate : ""
+            lastStepDate = CurrentPlayer != null ? CurrentPlayer.lastStepDate : "",
+
+            currentTownIndex = CurrentPlayer != null ? CurrentPlayer.currentTownIndex : 0,
+            maxUnlockedTownIndex = CurrentPlayer != null ? CurrentPlayer.maxUnlockedTownIndex : 0
         };
 
         CurrentPlayer = data;
-
         NormalizePlayerData();
 
         await SavePlayer();
@@ -141,11 +138,9 @@ public class FirebaseManager : MonoBehaviour
         if (CurrentPlayer.hp > CurrentPlayer.maxHp)
             CurrentPlayer.hp = CurrentPlayer.maxHp;
 
-        // 旧stepsしかないデータへの対応
         if (CurrentPlayer.totalSteps <= 0 && CurrentPlayer.steps > 0)
             CurrentPlayer.totalSteps = CurrentPlayer.steps;
 
-        // UI互換用
         CurrentPlayer.steps = CurrentPlayer.totalSteps;
 
         if (CurrentPlayer.usableSteps < 0)
@@ -156,6 +151,12 @@ public class FirebaseManager : MonoBehaviour
 
         if (CurrentPlayer.lastStepDate == null)
             CurrentPlayer.lastStepDate = "";
+
+        if (CurrentPlayer.currentTownIndex < 0)
+            CurrentPlayer.currentTownIndex = 0;
+
+        if (CurrentPlayer.maxUnlockedTownIndex < CurrentPlayer.currentTownIndex)
+            CurrentPlayer.maxUnlockedTownIndex = CurrentPlayer.currentTownIndex;
     }
 
     public async Task SavePlayer()
@@ -206,24 +207,44 @@ public class FirebaseManager : MonoBehaviour
 
         CurrentPlayer.totalSteps += amount;
         CurrentPlayer.usableSteps += amount;
-
         CurrentPlayer.steps = CurrentPlayer.totalSteps;
 
         await SavePlayer();
     }
 
-    public async Task UseSteps(int amount)
+    public async Task<bool> TryUseSteps(int amount)
     {
         if (CurrentPlayer == null)
-            return;
+            return false;
 
         if (amount <= 0)
-            return;
+            return true;
+
+        if (CurrentPlayer.usableSteps < amount)
+        {
+            Debug.Log("歩数不足");
+            return false;
+        }
 
         CurrentPlayer.usableSteps -= amount;
 
         if (CurrentPlayer.usableSteps < 0)
             CurrentPlayer.usableSteps = 0;
+
+        await SavePlayer();
+
+        return true;
+    }
+
+    public async Task UnlockTown(int townIndex)
+    {
+        if (CurrentPlayer == null)
+            return;
+
+        if (townIndex > CurrentPlayer.maxUnlockedTownIndex)
+            CurrentPlayer.maxUnlockedTownIndex = townIndex;
+
+        CurrentPlayer.currentTownIndex = townIndex;
 
         await SavePlayer();
     }

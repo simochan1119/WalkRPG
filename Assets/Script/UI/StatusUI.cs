@@ -12,35 +12,38 @@ public class StatusUI : MonoBehaviour
 
     public void Refresh()
     {
-        // Firebase確認
         if (FirebaseManager.Instance == null)
             return;
 
-        // Player確認
         var player = FirebaseManager.Instance.CurrentPlayer;
 
         if (player == null)
             return;
 
-        // UI更新
-        characterName.text = player.name;
+        if (characterName != null)
+            characterName.text = player.name;
 
-        characterHp.text =
-            "HP : " +
-            player.hp.ToString() +
-            "/" +
-            player.maxHp.ToString();
+        if (characterHp != null)
+            characterHp.text =
+                "HP : " +
+                player.hp.ToString() +
+                "/" +
+                player.maxHp.ToString();
 
-        characterLevel.text =
-            "LEVEL : " +
-            player.level.ToString();
+        if (characterLevel != null)
+            characterLevel.text =
+                "LEVEL : " +
+                player.level.ToString();
 
-        characterSteps.text =
-            "STEPS : " +
-            player.steps.ToString();
+        if (characterSteps != null)
+            characterSteps.text =
+                "行動力 : " + player.usableSteps +
+                "\n今日 : " + player.todaySteps +
+                "\n累計 : " + player.totalSteps;
 
-        characterMoney.text =
-            "GOLD : " +
-            player.gold.ToString();
+        if (characterMoney != null)
+            characterMoney.text =
+                "GOLD : " +
+                player.gold.ToString();
     }
 }
