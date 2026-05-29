@@ -96,7 +96,7 @@ public class FirebaseManager : MonoBehaviour
             steps = CurrentPlayer != null ? CurrentPlayer.steps : 0,
 
             totalSteps = CurrentPlayer != null ? CurrentPlayer.totalSteps : 0,
-            usableSteps = CurrentPlayer != null ? CurrentPlayer.usableSteps : 0,
+            usableSteps = CurrentPlayer != null ? CurrentPlayer.usableSteps : 300,
             todaySteps = CurrentPlayer != null ? CurrentPlayer.todaySteps : 0,
 
             lastSensorSteps = CurrentPlayer != null ? CurrentPlayer.lastSensorSteps : 0,
@@ -157,6 +157,9 @@ public class FirebaseManager : MonoBehaviour
 
         if (CurrentPlayer.maxUnlockedTownIndex < CurrentPlayer.currentTownIndex)
             CurrentPlayer.maxUnlockedTownIndex = CurrentPlayer.currentTownIndex;
+
+        if (CurrentPlayer.usableSteps <= 0)
+            CurrentPlayer.usableSteps = 300;
     }
 
     public async Task SavePlayer()
