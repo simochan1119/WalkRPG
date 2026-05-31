@@ -1001,7 +1001,6 @@
           {
             "name": "ParticleSystem",
             "scenes": [
-              "Assets/Scenes/02_Village.unity",
               "Assets/Scenes/03_Field1.unity"
             ],
             "dependencyType": 0,
@@ -1010,7 +1009,6 @@
           {
             "name": "ParticleSystemRenderer",
             "scenes": [
-              "Assets/Scenes/02_Village.unity",
               "Assets/Scenes/03_Field1.unity"
             ],
             "dependencyType": 0,
@@ -1521,7 +1519,8 @@
             "scenes": [
               "Assets/Scenes/00_Boot.unity",
               "Assets/Scenes/01_Title.unity",
-              "Assets/Scenes/02_Village.unity"
+              "Assets/Scenes/02_Village.unity",
+              "Assets/Scenes/03_Field1.unity"
             ],
             "dependencyType": 0,
             "icon": null

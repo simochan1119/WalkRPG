@@ -313,13 +313,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13359341, y: 0.2541635, z: -0.03547157, w: 0.9572333}
-  m_LocalPosition: {x: 0.37, y: 1.138158, z: -2.9099016}
-  m_LocalScale: {x: 0.6578948, y: 0.6578948, z: 0.65789473}
+  m_LocalRotation: {x: 0.09271817, y: 0, z: 0, w: 0.99569243}
+  m_LocalPosition: {x: 0.37, y: 4, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 937274827}
-  m_LocalEulerAnglesHint: {x: 15.89, y: 29.74, z: 0}
+  m_LocalEulerAnglesHint: {x: 10.64, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,7 +883,7 @@ GameObject:
   - component: {fileID: 937274829}
   - component: {fileID: 937274828}
   m_Layer: 0
-  m_Name: East
+  m_Name: MainCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -938,12 +938,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 4b0f1ee2e1bc3c745b53c7b85a43e56c, type: 3}
+  m_Sprite: {fileID: -130441373, guid: 5c79516b0afb97547a117ef696bb5946, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.92, y: 0.92}
+  m_Size: {x: 1.27, y: 2.99}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -957,7 +957,7 @@ Transform:
   m_GameObject: {fileID: 937274825}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.77, y: 6.85, z: 192.8}
+  m_LocalPosition: {x: 55.25, y: 8.34, z: 192.8}
   m_LocalScale: {x: 1.52, y: 1.52, z: 1.52}
   m_ConstrainProportionsScale: 1
   m_Children:
