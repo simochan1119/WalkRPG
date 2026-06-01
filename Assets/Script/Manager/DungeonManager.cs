@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -34,6 +35,23 @@ public class DungeonManager : GameSceneManager
     [Header("Event Points")]
     public DungeonEventPoint[] eventPoints;
 
+    [Header("Event Detection")]
+    [Tooltip("イベント地点の何m手前で反応するか")]
+    public int eventDetectDistance = 10;
+
+    [Header("Event VFX")]
+    [Tooltip("びっくりマークなどのVFX Prefab")]
+    public GameObject surpriseVfxPrefab;
+
+    [Tooltip("VFXを出す位置。未設定ならPlayerの頭上に出します")]
+    public Transform surpriseVfxPoint;
+
+    [Tooltip("VFXを表示してからイベント処理に入るまでの時間")]
+    public float surpriseVfxTime = 0.8f;
+
+    [Tooltip("surpriseVfxPoint未設定時、Playerからどれだけ上に出すか")]
+    public Vector3 defaultVfxOffset = new Vector3(0f, 2f, 0f);
+
     private int currentDistance = 0;
     private int totalDistance = 300;
     private int nextEventIndex = 0;
@@ -41,6 +59,7 @@ public class DungeonManager : GameSceneManager
     private bool isRunning = false;
     private bool isWaitingEvent = false;
     private bool isCleared = false;
+    private bool isEventStarting = false;
 
     private Vector3 startPosition;
     private Vector3 targetPosition;
@@ -62,11 +81,16 @@ public class DungeonManager : GameSceneManager
         }
 
         if (animator == null && player != null)
+        {
             animator = player.GetComponent<Animator>();
+        }
 
         currentDistance = 0;
         nextEventIndex = 0;
         isCleared = false;
+        isRunning = false;
+        isWaitingEvent = false;
+        isEventStarting = false;
 
         RefreshUI();
         SetEventText(DungeonSession.areaName + " の探索開始！");
@@ -74,7 +98,7 @@ public class DungeonManager : GameSceneManager
         StartRunToNextEvent();
     }
 
-    void Update()
+    private void Update()
     {
         if (!isRunning || player == null)
             return;
@@ -98,7 +122,10 @@ public class DungeonManager : GameSceneManager
             if (animator != null)
                 animator.SetBool("Walk", false);
 
-            TriggerCurrentEvent();
+            if (!isEventStarting)
+            {
+                StartCoroutine(TriggerCurrentEventWithVfx());
+            }
         }
     }
 
@@ -108,6 +135,7 @@ public class DungeonManager : GameSceneManager
             return;
 
         isWaitingEvent = false;
+        isEventStarting = false;
 
         int nextDistance = GetNextTargetDistance();
 
@@ -125,10 +153,45 @@ public class DungeonManager : GameSceneManager
     {
         if (eventPoints != null && nextEventIndex < eventPoints.Length)
         {
-            return Mathf.Clamp(eventPoints[nextEventIndex].distance, 0, totalDistance);
+            int eventDistance = eventPoints[nextEventIndex].distance;
+
+            // 例：100m地点のイベントなら、10m手前の90mで停止する
+            int detectStartDistance = eventDistance - eventDetectDistance;
+
+            return Mathf.Clamp(detectStartDistance, 0, totalDistance);
         }
 
         return totalDistance;
+    }
+
+    private IEnumerator TriggerCurrentEventWithVfx()
+    {
+        isEventStarting = true;
+
+        GameObject vfx = null;
+
+        if (surpriseVfxPrefab != null && player != null)
+        {
+            Vector3 spawnPosition = surpriseVfxPoint != null
+                ? surpriseVfxPoint.position
+                : player.position + defaultVfxOffset;
+
+            vfx = Instantiate(surpriseVfxPrefab, spawnPosition, Quaternion.identity);
+        }
+
+        if (surpriseVfxTime > 0f)
+        {
+            yield return new WaitForSeconds(surpriseVfxTime);
+        }
+
+        if (vfx != null)
+        {
+            Destroy(vfx);
+        }
+
+        TriggerCurrentEvent();
+
+        isEventStarting = false;
     }
 
     private void TriggerCurrentEvent()
