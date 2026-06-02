@@ -2,8 +2,14 @@ using UnityEditor;
 using MCPForUnity.Editor.Services;
 using MCPForUnity.Editor.Services.Transport;
 
+[InitializeOnLoad]
 public static class McpHttpBoot
 {
+    static McpHttpBoot()
+    {
+        StartHttp();
+    }
+
     public static void StartHttp()
     {
         // Use literal strings to bypass internal protection level of EditorPrefKeys
@@ -16,3 +22,4 @@ public static class McpHttpBoot
         UnityEngine.Debug.Log("MCP HTTP Transport start requested via McpHttpBoot.StartHttp()");
     }
 }
+
