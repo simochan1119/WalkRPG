@@ -17,6 +17,9 @@ public class DungeonEventPoint
     public int distance;
     public DungeonEventType eventType;
     public string message;
+    public EnemyData enemyData; // Added for Enemy/Boss events
+    public int minGold;         // Added for Treasure events
+    public int maxGold;         // Added for Treasure events
 }
 
 public class DungeonManager : GameSceneManager
@@ -31,6 +34,12 @@ public class DungeonManager : GameSceneManager
     public TMP_Text distanceText;
     public TMP_Text eventText;
 
+    [Header("Stage Data")]
+    public DungeonStageData stageData;
+
+    [Header("VFX")]
+    public GameObject bikkuriVFX;
+
     [Header("Event Points")]
     public DungeonEventPoint[] eventPoints;
 
@@ -41,6 +50,7 @@ public class DungeonManager : GameSceneManager
     private bool isRunning = false;
     private bool isWaitingEvent = false;
     private bool isCleared = false;
+    private bool hasPreSpawnedCurrent = false; // Tracks if current event enemy has been pre-spawned
 
     private Vector3 startPosition;
     private Vector3 targetPosition;
@@ -53,7 +63,16 @@ public class DungeonManager : GameSceneManager
             return;
         }
 
-        totalDistance = DungeonSession.totalDistance;
+        // Load stage configuration from ScriptableObject if assigned
+        if (stageData != null)
+        {
+            totalDistance = stageData.totalDistance;
+            eventPoints = stageData.eventPoints;
+        }
+        else
+        {
+            totalDistance = DungeonSession.totalDistance;
+        }
 
         if (player != null)
         {
@@ -67,9 +86,10 @@ public class DungeonManager : GameSceneManager
         currentDistance = 0;
         nextEventIndex = 0;
         isCleared = false;
+        hasPreSpawnedCurrent = false;
 
         RefreshUI();
-        SetEventText(DungeonSession.areaName + " ‚Ì’TõŠJnI");
+        SetEventText(DungeonSession.areaName + " ã®æ¢ç´¢é–‹å§‹ï¼");
 
         StartRunToNextEvent();
     }
@@ -91,6 +111,9 @@ public class DungeonManager : GameSceneManager
 
         RefreshUI();
 
+        // Check if we need to pre-spawn the upcoming enemy off-screen
+        CheckPreSpawnEnemy();
+
         if (Vector3.Distance(player.position, targetPosition) <= 0.01f)
         {
             isRunning = false;
@@ -108,6 +131,7 @@ public class DungeonManager : GameSceneManager
             return;
 
         isWaitingEvent = false;
+        hasPreSpawnedCurrent = false; // Reset pre-spawn tracker for the new event
 
         int nextDistance = GetNextTargetDistance();
 
@@ -118,20 +142,22 @@ public class DungeonManager : GameSceneManager
         if (animator != null)
             animator.SetBool("Walk", true);
 
-        SetEventText("’Tõ’†...");
+        SetEventText("æ¢ç´¢ä¸­...");
     }
 
     private int GetNextTargetDistance()
     {
         if (eventPoints != null && nextEventIndex < eventPoints.Length)
         {
-            return Mathf.Clamp(eventPoints[nextEventIndex].distance, 0, totalDistance);
+            int eventDistance = eventPoints[nextEventIndex].distance;
+            int detectOffset = stageData != null ? stageData.eventDetectDistance : 10;
+            return Mathf.Clamp(eventDistance - detectOffset, 0, totalDistance);
         }
 
         return totalDistance;
     }
 
-    private void TriggerCurrentEvent()
+    private async void TriggerCurrentEvent()
     {
         isWaitingEvent = true;
 
@@ -140,6 +166,15 @@ public class DungeonManager : GameSceneManager
             DungeonEventPoint point = eventPoints[nextEventIndex];
             nextEventIndex++;
 
+            // 1. Play Exclamation/Surprise VFX if set
+            if (bikkuriVFX != null)
+            {
+                bikkuriVFX.SetActive(true);
+                await System.Threading.Tasks.Task.Delay(1000);
+                bikkuriVFX.SetActive(false);
+            }
+
+            // 2. Process event type
             switch (point.eventType)
             {
                 case DungeonEventType.Enemy:
@@ -170,40 +205,64 @@ public class DungeonManager : GameSceneManager
         {
             distance = totalDistance,
             eventType = DungeonEventType.Boss,
-            message = "Å‰œ‚É“’B‚µ‚½I"
+            message = "æœ€çµ‚åœ°ç‚¹ã«åˆ°é”ã—ãŸï¼"
         });
     }
 
-    private async void EnemyEvent(DungeonEventPoint point)
+    private void CheckPreSpawnEnemy()
     {
-        int damage = Random.Range(3, 8);
+        if (hasPreSpawnedCurrent) return;
 
-        await FirebaseManager.Instance.DamagePlayer(damage);
-
-        SetEventText(
-            point.distance + "m ’n“_\n" +
-            "“G‚ªŒ»‚ê‚½I\n" +
-            damage + " ƒ_ƒ[ƒW‚ğó‚¯‚½B"
-        );
-
-        RefreshUI();
-
-        if (FirebaseManager.Instance.CurrentPlayer.hp <= 0)
+        if (eventPoints != null && nextEventIndex < eventPoints.Length)
         {
-            OnPlayerDead();
+            DungeonEventPoint point = eventPoints[nextEventIndex];
+            if (point.eventType == DungeonEventType.Enemy || point.eventType == DungeonEventType.Boss)
+            {
+                int eventDistance = point.distance;
+                int distanceToEvent = eventDistance - currentDistance;
+
+                // Pre-spawn enemy when player is within 25m of the event
+                if (distanceToEvent <= 25 && distanceToEvent > 0)
+                {
+                    if (BattleManager.Instance != null && point.enemyData != null)
+                    {
+                        Vector3 spawnPos = startPosition + Vector3.right * eventDistance;
+                        BattleManager.Instance.PreSpawnEnemy(point.enemyData, spawnPos);
+                        hasPreSpawnedCurrent = true;
+                    }
+                }
+            }
+        }
+    }
+
+    private void EnemyEvent(DungeonEventPoint point)
+    {
+        SetEventText(point.message);
+
+        if (BattleManager.Instance != null && point.enemyData != null)
+        {
+            // Trigger combat logic (seamlessly uses pre-spawned instance)
+            BattleManager.Instance.StartBattle(point.enemyData, this);
+        }
+        else
+        {
+            Debug.LogWarning("BattleManager or EnemyData is missing. Skipping combat.");
+            NotifyBattleFinished();
         }
     }
 
     private async void TreasureEvent(DungeonEventPoint point)
     {
-        int gold = Random.Range(10, 31);
+        int minG = point.minGold > 0 ? point.minGold : 10;
+        int maxG = point.maxGold >= minG ? point.maxGold : 30;
+        int gold = Random.Range(minG, maxG + 1);
 
         await FirebaseManager.Instance.AddGold(gold);
 
         SetEventText(
-            point.distance + "m ’n“_\n" +
-            "•ó” ‚ğŒ©‚Â‚¯‚½I\n" +
-            gold + " G ‚ğè‚É“ü‚ê‚½B"
+            point.distance + "m åœ°ç‚¹\n" +
+            "å®ç®±ã‚’ã¿ã¤ã‘ãŸï¼\n" +
+            gold + " G æ‰‹ã«å…¥ã‚ŒãŸã€‚"
         );
 
         RefreshUI();
@@ -214,9 +273,9 @@ public class DungeonManager : GameSceneManager
         await FirebaseManager.Instance.HealPlayerFull();
 
         SetEventText(
-            point.distance + "m ’n“_\n" +
-            "‹xŒeƒ|ƒCƒ“ƒg‚ğŒ©‚Â‚¯‚½I\n" +
-            "HP‚ª‘S‰ñ•œ‚µ‚½B"
+            point.distance + "m åœ°ç‚¹\n" +
+            "å›å¾©ãƒã‚¤ãƒ³ãƒˆã‚’ã¿ã¤ã‘ãŸï¼\n" +
+            "HPãŒå…¨å›å¾©ã—ãŸã€‚"
         );
 
         RefreshUI();
@@ -224,11 +283,18 @@ public class DungeonManager : GameSceneManager
 
     private void BossEvent(DungeonEventPoint point)
     {
-        SetEventText(
-            point.distance + "m ’n“_\n" +
-            "ƒ{ƒX‚ªŒ»‚ê‚½I\n" +
-            "Ÿ—˜‚·‚é‚ÆŸ‚Ì’¬‚Öi‚ß‚Ü‚·B"
-        );
+        SetEventText(point.message);
+
+        if (BattleManager.Instance != null && point.enemyData != null)
+        {
+            // Trigger combat logic for Boss (seamlessly uses pre-spawned instance)
+            BattleManager.Instance.StartBattle(point.enemyData, this);
+        }
+        else
+        {
+            Debug.LogWarning("BattleManager or EnemyData is missing. Skipping boss battle.");
+            NotifyBattleFinished();
+        }
     }
 
     public void OnClickContinue()
@@ -266,7 +332,7 @@ public class DungeonManager : GameSceneManager
         ReturnToTown();
     }
 
-    private void OnPlayerDead()
+    public void OnPlayerDead()
     {
         ReturnToTown();
     }
@@ -298,5 +364,27 @@ public class DungeonManager : GameSceneManager
 
         if (eventText != null)
             eventText.text = text;
+    }
+
+    // --- BattleManager Interaction Support Methods ---
+
+    public void ShowBattleText(string text)
+    {
+        SetEventText(text);
+    }
+
+    public void RefreshBattleUI()
+    {
+        RefreshUI();
+    }
+
+    public void HandlePlayerDeath()
+    {
+        OnPlayerDead();
+    }
+
+    public void NotifyBattleFinished()
+    {
+        RefreshUI();
     }
 }

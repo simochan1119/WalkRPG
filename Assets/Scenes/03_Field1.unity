@@ -1193,6 +1193,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 159658493838201046, guid: 474f44a3e6e22a449a37bba13b060e2d, type: 3}
   m_PrefabInstance: {fileID: 412700586469168401}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1384640813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1384640815}
+  - component: {fileID: 1384640814}
+  m_Layer: 0
+  m_Name: BattleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1384640814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384640813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31396440e8052544ebf97723e5576081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleManager
+  defaultZakoPrefab: {fileID: 8301859664473934897, guid: c97878eafae92144d801e2710e23064e, type: 3}
+  enemySpawnPoint: {fileID: 0}
+--- !u!4 &1384640815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384640813}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.97939, y: 0, z: 16.46263}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1486889010
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,7 +1248,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1486889012}
-  - component: {fileID: 1486889011}
   - component: {fileID: 1486889013}
   m_Layer: 0
   m_Name: GameManager
@@ -1211,18 +1256,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1486889011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1486889010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fadc2c0b5fefc0b4b9de467109c61fae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WorldLooper
 --- !u!4 &1486889012
 Transform:
   m_ObjectHideFlags: 0
@@ -1554,9 +1587,11 @@ MonoBehaviour:
   player: {fileID: 3096424375914339973}
   animator: {fileID: 6831965297248067358}
   moveSpeed: 3
-  areaNameText: {fileID: 0}
-  distanceText: {fileID: 0}
-  eventText: {fileID: 0}
+  areaNameText: {fileID: 2101281750}
+  distanceText: {fileID: 351002871}
+  eventText: {fileID: 1090922909}
+  stageData: {fileID: 11400000, guid: 42e1c003165e9ac4997555ac87cc951a, type: 2}
+  bikkuriVFX: {fileID: 0}
   eventPoints: []
 --- !u!4 &1754689342
 Transform:
@@ -2655,3 +2690,4 @@ SceneRoots:
   - {fileID: 1111418654}
   - {fileID: 202162575}
   - {fileID: 1754689342}
+  - {fileID: 1384640815}
