@@ -35,6 +35,12 @@ public class BattleManager : MonoBehaviour
     private EnemyController spawnedEnemyController;
     private bool isBattleActive = false;
 
+    // Approach variables
+    private bool isApproaching = false;
+    private Vector3 playerBattleTarget;
+    private Vector3 enemyBattleTarget;
+    private float approachSpeed = 4f;
+
     // Battle Timers
     private float playerAttackTimer = 0f;
     private float enemyAttackTimer = 0f;
@@ -63,6 +69,12 @@ public class BattleManager : MonoBehaviour
 
     void Update()
     {
+        if (isApproaching)
+        {
+            UpdateApproach();
+            return;
+        }
+
         if (!isBattleActive) return;
 
         // 1. Manage Cooldowns
@@ -129,6 +141,55 @@ public class BattleManager : MonoBehaviour
         Debug.Log($"Pre-spawned {enemyData.enemyName} at position {position}");
     }
 
+    private void UpdateApproach()
+    {
+        if (activeDungeonManager == null || spawnedEnemyInstance == null)
+        {
+            isApproaching = false;
+            isBattleActive = true;
+            return;
+        }
+
+        Transform playerTransform = activeDungeonManager.player;
+        Transform enemyTransform = spawnedEnemyInstance.transform;
+
+        playerTransform.position = Vector3.MoveTowards(
+            playerTransform.position,
+            playerBattleTarget,
+            approachSpeed * Time.deltaTime
+        );
+
+        enemyTransform.position = Vector3.MoveTowards(
+            enemyTransform.position,
+            enemyBattleTarget,
+            approachSpeed * Time.deltaTime
+        );
+
+        // Ensure walk animations are triggered
+        if (activeDungeonManager.animator != null)
+            activeDungeonManager.animator.SetBool("Walk", true);
+
+        Animator enemyAnimator = spawnedEnemyInstance.GetComponent<Animator>();
+        if (enemyAnimator != null)
+            enemyAnimator.SetBool("Walk", true);
+
+        if (Vector3.Distance(playerTransform.position, playerBattleTarget) <= 0.05f &&
+            Vector3.Distance(enemyTransform.position, enemyBattleTarget) <= 0.05f)
+        {
+            isApproaching = false;
+
+            // Stop walk animations
+            if (activeDungeonManager.animator != null)
+                activeDungeonManager.animator.SetBool("Walk", false);
+
+            if (enemyAnimator != null)
+                enemyAnimator.SetBool("Walk", false);
+
+            isBattleActive = true;
+            Debug.Log("[BattleManager] Approach finished. Battle active!");
+        }
+    }
+
     /// <summary>
     /// Starts the battle. Seamlessly uses the pre-spawned enemy instance if it exists.
     /// </summary>
@@ -175,12 +236,36 @@ public class BattleManager : MonoBehaviour
             spawnedEnemyController.Initialize(enemyData);
         }
 
-        isBattleActive = true;
+        // Set up approach targets
+        if (dungeonManager != null && dungeonManager.player != null && spawnedEnemyInstance != null)
+        {
+            float midX = (dungeonManager.player.position.x + spawnedEnemyInstance.transform.position.x) / 2f;
+            
+            playerBattleTarget = new Vector3(midX - 1.2f, dungeonManager.player.position.y, dungeonManager.player.position.z);
+            enemyBattleTarget = new Vector3(midX + 1.2f, spawnedEnemyInstance.transform.position.y, spawnedEnemyInstance.transform.position.z);
+            
+            isApproaching = true;
+            isBattleActive = false;
+
+            // Trigger walking animations immediately
+            if (dungeonManager.animator != null)
+                dungeonManager.animator.SetBool("Walk", true);
+
+            Animator enemyAnimator = spawnedEnemyInstance.GetComponent<Animator>();
+            if (enemyAnimator != null)
+                enemyAnimator.SetBool("Walk", true);
+        }
+        else
+        {
+            isApproaching = false;
+            isBattleActive = true;
+        }
+
         Debug.Log($"Battle active against {activeEnemyData.enemyName}! Autoplay active.");
 
         if (activeDungeonManager != null)
         {
-            activeDungeonManager.ShowBattleText($"{activeEnemyData.enemyName}が現れた！\n自動戦闘を開始します！");
+            activeDungeonManager.ShowBattleText($"{activeEnemyData.enemyName}が現れた！\n間合いを詰めて戦闘を開始します！");
         }
     }
 
@@ -201,6 +286,10 @@ public class BattleManager : MonoBehaviour
 
         // Try triggering a Knockback (stun) effect
         bool didKnockback = TryTriggerKnockback();
+        if (didKnockback)
+        {
+            spawnedEnemyController.ApplyKnockback(0.8f);
+        }
         string kbText = didKnockback ? " (ノックバック！)" : "";
 
         if (activeDungeonManager != null)
@@ -220,6 +309,9 @@ public class BattleManager : MonoBehaviour
 
         int enemyDamage = activeEnemyData.attack;
         
+        // Play attack animation
+        spawnedEnemyController.PlayAttack();
+
         // Apply damage to player
         if (FirebaseManager.Instance != null)
         {
@@ -275,7 +367,11 @@ public class BattleManager : MonoBehaviour
 
         // Slash also has a slightly higher chance to knockback (e.g., 40%)
         bool didKnockback = Random.value <= 0.4f;
-        if (didKnockback) enemyStunTimer = 1.2f;
+        if (didKnockback)
+        {
+            enemyStunTimer = 1.2f;
+            spawnedEnemyController.ApplyKnockback(1.2f);
+        }
         string kbText = didKnockback ? " (強力ノックバック！)" : "";
 
         if (activeDungeonManager != null)
