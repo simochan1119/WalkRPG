@@ -1,7 +1,37 @@
 fileFormatVersion: 2
 guid: 97fc7ef21fa02f043b5510e5ed13ee4b
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7157939991870246030
+    second: Slime_Walk_0
+  - first:
+      213: 2542399727875120921
+    second: Slime_Walk_1
+  - first:
+      213: 7045184759656856500
+    second: Slime_Walk_2
+  - first:
+      213: 658611408025072487
+    second: Slime_Walk_3
+  - first:
+      213: -7329916849555023877
+    second: Slime_Walk_4
+  - first:
+      213: 7405241753440909798
+    second: Slime_Walk_5
+  - first:
+      213: 6506002324247705608
+    second: Slime_Walk_6
+  - first:
+      213: -2145007890502856200
+    second: Slime_Walk_7
+  - first:
+      213: -976781299499468467
+    second: Slime_Walk_8
+  - first:
+      213: -3335644152629281336
+    second: Slime_Walk_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -21,7 +51,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -48,7 +78,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,14 +140,14 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe1-ezgif.com-gif-to-sprite-converter_0
+      name: Slime_Walk_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 88
-        width: 27
-        height: 18
-      alignment: 7
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -125,21 +155,21 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c4ea2b9ffffffff0800000000000000
-      internalID: -1691687735
+      spriteID: e8c0dfa8f7c165360800000000000000
+      internalID: 7157939991870246030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe1-ezgif.com-gif-to-sprite-converter_1
+      name: Slime_Walk_1
       rect:
         serializedVersion: 2
-        x: 83
-        y: 87
-        width: 26
-        height: 19
-      alignment: 7
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -147,21 +177,21 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2839bfc9ffffffff0800000000000000
-      internalID: -1661234302
+      spriteID: 91fdb01151b684320800000000000000
+      internalID: 2542399727875120921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe1-ezgif.com-gif-to-sprite-converter_2
+      name: Slime_Walk_2
       rect:
         serializedVersion: 2
-        x: 148
-        y: 87
-        width: 23
-        height: 21
-      alignment: 7
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -169,21 +199,21 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 940f8edfffffffff0800000000000000
-      internalID: -35065783
+      spriteID: 4bbb750463685c160800000000000000
+      internalID: 7045184759656856500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe1-ezgif.com-gif-to-sprite-converter_3
+      name: Slime_Walk_3
       rect:
         serializedVersion: 2
-        x: 211
-        y: 91
-        width: 25
-        height: 19
-      alignment: 7
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -191,21 +221,21 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 663e0d58ffffffff0800000000000000
-      internalID: -2049907866
+      spriteID: 763ba5c069bd32900800000000000000
+      internalID: 658611408025072487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe1-ezgif.com-gif-to-sprite-converter_4
+      name: Slime_Walk_4
       rect:
         serializedVersion: 2
-        x: 274
-        y: 88
-        width: 26
-        height: 18
-      alignment: 7
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -213,21 +243,21 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 80eaadd3000000000800000000000000
-      internalID: 1037741576
+      spriteID: bf75f1df577e64a90800000000000000
+      internalID: -7329916849555023877
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe1-ezgif.com-gif-to-sprite-converter_5
+      name: Slime_Walk_5
       rect:
         serializedVersion: 2
-        x: 18
-        y: 23
-        width: 27
-        height: 18
-      alignment: 7
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -235,21 +265,21 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d31fbf57000000000800000000000000
-      internalID: 1979445565
+      spriteID: 6e97cbdd324b4c660800000000000000
+      internalID: 7405241753440909798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe1-ezgif.com-gif-to-sprite-converter_6
+      name: Slime_Walk_6
       rect:
         serializedVersion: 2
-        x: 84
-        y: 21
-        width: 23
-        height: 22
-      alignment: 7
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -257,21 +287,21 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 70b14fd2000000000800000000000000
-      internalID: 770972423
+      spriteID: 80876a4c4a6f94a50800000000000000
+      internalID: 6506002324247705608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe1-ezgif.com-gif-to-sprite-converter_7
+      name: Slime_Walk_7
       rect:
         serializedVersion: 2
-        x: 147
-        y: 26
-        width: 24
-        height: 19
-      alignment: 7
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -279,21 +309,21 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ffa303e0000000000800000000000000
-      internalID: 238041855
+      spriteID: 8f1da2630b66b32e0800000000000000
+      internalID: -2145007890502856200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe1-ezgif.com-gif-to-sprite-converter_8
+      name: Slime_Walk_8
       rect:
         serializedVersion: 2
-        x: 210
-        y: 26
-        width: 27
-        height: 18
-      alignment: 7
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -301,8 +331,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 23438465000000000800000000000000
-      internalID: 1447572530
+      spriteID: d49f6145596c172f0800000000000000
+      internalID: -976781299499468467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime_Walk_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cd3c61f05965b1d0800000000000000
+      internalID: -3335644152629281336
       vertices: []
       indices: 
       edges: []
@@ -323,6 +375,16 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
+      Slime_Walk_0: 7157939991870246030
+      Slime_Walk_1: 2542399727875120921
+      Slime_Walk_2: 7045184759656856500
+      Slime_Walk_3: 658611408025072487
+      Slime_Walk_4: -7329916849555023877
+      Slime_Walk_5: 7405241753440909798
+      Slime_Walk_6: 6506002324247705608
+      Slime_Walk_7: -2145007890502856200
+      Slime_Walk_8: -976781299499468467
+      Slime_Walk_9: -3335644152629281336
       Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe1-ezgif.com-gif-to-sprite-converter_0: -1691687735
       Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe1-ezgif.com-gif-to-sprite-converter_1: -1661234302
       Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe1-ezgif.com-gif-to-sprite-converter_2: -35065783

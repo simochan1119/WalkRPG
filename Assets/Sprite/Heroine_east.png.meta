@@ -113,19 +113,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_0
       rect:
         serializedVersion: 2
-        x: 178
-        y: 3172
-        width: 152
-        height: 297
+        x: 0
+        y: 3072
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c742c799dbfa7b348b74576b1df8f1c0
+      spriteID: 0111c75fffffffff0800000000000000
       internalID: -176418544
       vertices: []
       indices: 
@@ -135,19 +135,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_1
       rect:
         serializedVersion: 2
-        x: 693
-        y: 3175
-        width: 151
-        height: 301
+        x: 512
+        y: 3072
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8b5b77095ef205e4a85085464bbe7273
+      spriteID: 34561df0000000000800000000000000
       internalID: 265381187
       vertices: []
       indices: 
@@ -157,19 +157,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_2
       rect:
         serializedVersion: 2
-        x: 1207
-        y: 3175
-        width: 158
-        height: 293
+        x: 1024
+        y: 3072
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c0770b2a65d3d074f9b4a8db95fc3144
+      spriteID: 0ef8e3deffffffff0800000000000000
       internalID: -314667040
       vertices: []
       indices: 
@@ -179,19 +179,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_3
       rect:
         serializedVersion: 2
-        x: 1721
-        y: 3175
-        width: 159
-        height: 293
+        x: 1536
+        y: 3072
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6ccd0a296bf79c24099d0d4bda5bb0ff
+      spriteID: 58ff649fffffffff0800000000000000
       internalID: -112787579
       vertices: []
       indices: 
@@ -201,19 +201,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_4
       rect:
         serializedVersion: 2
-        x: 2225
-        y: 3174
-        width: 159
-        height: 292
+        x: 2048
+        y: 3072
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c885ecbe240532349a925e57df8aa0cb
+      spriteID: edf5e26dffffffff0800000000000000
       internalID: -701603874
       vertices: []
       indices: 
@@ -223,19 +223,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_5
       rect:
         serializedVersion: 2
-        x: 2740
-        y: 3170
-        width: 154
-        height: 299
+        x: 2560
+        y: 3072
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d1c0c6a67e6b31847847b23f84c9873b
+      spriteID: 5cdfe7c1000000000800000000000000
       internalID: 478084549
       vertices: []
       indices: 
@@ -245,19 +245,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_6
       rect:
         serializedVersion: 2
-        x: 3254
-        y: 3174
-        width: 140
-        height: 297
+        x: 3072
+        y: 3072
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e1280208ee5e44745861599b76a2c740
+      spriteID: e83afe12000000000800000000000000
       internalID: 569353102
       vertices: []
       indices: 
@@ -267,19 +267,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_7
       rect:
         serializedVersion: 2
-        x: 188
-        y: 2663
-        width: 127
-        height: 299
+        x: 0
+        y: 2560
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b7c44ea564018974c8f567f867a36afb
+      spriteID: 36f9938fffffffff0800000000000000
       internalID: -130441373
       vertices: []
       indices: 
@@ -289,19 +289,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_8
       rect:
         serializedVersion: 2
-        x: 693
-        y: 2656
-        width: 127
-        height: 315
+        x: 512
+        y: 2560
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b17643502e9aea44ea6ad03b87248210
+      spriteID: 330879ceffffffff0800000000000000
       internalID: -325615565
       vertices: []
       indices: 
@@ -311,19 +311,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_9
       rect:
         serializedVersion: 2
-        x: 1207
-        y: 2663
-        width: 126
-        height: 301
+        x: 1024
+        y: 2560
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b8807618ba457ae488ee88e389a76d15
+      spriteID: 43cc5dfcffffffff0800000000000000
       internalID: -808072140
       vertices: []
       indices: 
@@ -333,19 +333,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_10
       rect:
         serializedVersion: 2
-        x: 1721
-        y: 2663
-        width: 126
-        height: 304
+        x: 1536
+        y: 2560
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 507cbc2c5efe0404d999db22e8ad7ae2
+      spriteID: bbc08fadffffffff0800000000000000
       internalID: -621278021
       vertices: []
       indices: 
@@ -355,19 +355,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_11
       rect:
         serializedVersion: 2
-        x: 2232
-        y: 2663
-        width: 131
-        height: 297
+        x: 2048
+        y: 2560
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d13c55beb99c01041b97aa0aa04c3a71
+      spriteID: 5404e176000000000800000000000000
       internalID: 1730035781
       vertices: []
       indices: 
@@ -377,19 +377,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_12
       rect:
         serializedVersion: 2
-        x: 2743
-        y: 2663
-        width: 135
-        height: 297
+        x: 2560
+        y: 2560
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 44237cf5171118947b8830f535561cd2
+      spriteID: daecfb66000000000800000000000000
       internalID: 1723846317
       vertices: []
       indices: 
@@ -399,19 +399,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_13
       rect:
         serializedVersion: 2
-        x: 3254
-        y: 2663
-        width: 142
-        height: 295
+        x: 3072
+        y: 2560
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b4e38783ac4385e47b8861a89698134f
+      spriteID: 7103ca51000000000800000000000000
       internalID: 363606039
       vertices: []
       indices: 
@@ -421,19 +421,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_14
       rect:
         serializedVersion: 2
-        x: 181
-        y: 2152
-        width: 154
-        height: 290
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: aab38a5424870ab4bb2c3f47e7d207d2
+      spriteID: 1e7581a3000000000800000000000000
       internalID: 974673889
       vertices: []
       indices: 
@@ -443,19 +443,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_15
       rect:
         serializedVersion: 2
-        x: 692
-        y: 2152
-        width: 149
-        height: 290
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 73aa73acaa1543342a4aa14dba935bd6
+      spriteID: 829287e4000000000800000000000000
       internalID: 1316497704
       vertices: []
       indices: 
@@ -465,19 +465,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_16
       rect:
         serializedVersion: 2
-        x: 1205
-        y: 2152
-        width: 142
-        height: 292
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1a5a1a24be119d5489a1782941a90f59
+      spriteID: a05db1efffffffff0800000000000000
       internalID: -31730422
       vertices: []
       indices: 
@@ -487,19 +487,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_17
       rect:
         serializedVersion: 2
-        x: 1711
-        y: 2142
-        width: 148
-        height: 305
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 389a640afbaa54344b87686d796820ec
+      spriteID: b05ea615000000000800000000000000
       internalID: 1365959947
       vertices: []
       indices: 
@@ -509,19 +509,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_18
       rect:
         serializedVersion: 2
-        x: 2232
-        y: 2147
-        width: 131
-        height: 300
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 21dded4575e164a4e9000b2b48be3c4a
+      spriteID: fd76fa78ffffffff0800000000000000
       internalID: -2018547745
       vertices: []
       indices: 
@@ -531,19 +531,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_19
       rect:
         serializedVersion: 2
-        x: 2740
-        y: 2150
-        width: 127
-        height: 299
+        x: 2560
+        y: 2048
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f520d3b40f0c35448b3e755785bc2dc4
+      spriteID: ba9b5c0cffffffff0800000000000000
       internalID: -1060783701
       vertices: []
       indices: 
@@ -553,19 +553,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_20
       rect:
         serializedVersion: 2
-        x: 3254
-        y: 2150
-        width: 124
-        height: 307
+        x: 3072
+        y: 2048
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: bc9f37c910ad9864bb4dd1b3a0ef3c2c
+      spriteID: 3ef712b4000000000800000000000000
       internalID: 1260486627
       vertices: []
       indices: 
@@ -575,19 +575,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_21
       rect:
         serializedVersion: 2
-        x: 188
-        y: 1639
-        width: 127
-        height: 304
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 935ec288e3f4cac4a9380ba515ad84eb
+      spriteID: 01c2d9cbffffffff0800000000000000
       internalID: -1130550256
       vertices: []
       indices: 
@@ -597,19 +597,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_22
       rect:
         serializedVersion: 2
-        x: 703
-        y: 1637
-        width: 117
-        height: 303
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a6bd7261ddedd4a48b66c5d0a13d2e59
+      spriteID: 591ad3dfffffffff0800000000000000
       internalID: -46292587
       vertices: []
       indices: 
@@ -619,19 +619,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_23
       rect:
         serializedVersion: 2
-        x: 1207
-        y: 1639
-        width: 133
-        height: 299
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 366072aab4e360e4890ced5f86a58ec5
+      spriteID: c96ebd9affffffff0800000000000000
       internalID: -1445206372
       vertices: []
       indices: 
@@ -641,19 +641,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_24
       rect:
         serializedVersion: 2
-        x: 1725
-        y: 1638
-        width: 134
-        height: 298
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 63b3d29586dafa94abf289eb6901c474
+      spriteID: 288ef4d5000000000800000000000000
       internalID: 1565517954
       vertices: []
       indices: 
@@ -663,19 +663,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_25
       rect:
         serializedVersion: 2
-        x: 2236
-        y: 1637
-        width: 140
-        height: 298
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 77ab76e74b5c30243b78e690fc584240
+      spriteID: fc2a7f84000000000800000000000000
       internalID: 1224188623
       vertices: []
       indices: 
@@ -685,19 +685,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_26
       rect:
         serializedVersion: 2
-        x: 2743
-        y: 1637
-        width: 152
-        height: 296
+        x: 2560
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: dce16d3e49a53f040893fad5e3eacca6
+      spriteID: b339de10000000000800000000000000
       internalID: 32346939
       vertices: []
       indices: 
@@ -707,19 +707,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_27
       rect:
         serializedVersion: 2
-        x: 3255
-        y: 1639
-        width: 151
-        height: 294
+        x: 3072
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8a5e9a0ac3cc3b044883e1b45b8d0a55
+      spriteID: 594ed2feffffffff0800000000000000
       internalID: -282205035
       vertices: []
       indices: 
@@ -729,19 +729,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_28
       rect:
         serializedVersion: 2
-        x: 1207
-        y: 1126
-        width: 138
-        height: 302
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 267aa2b996c4dca42b38db6cf67ca8c3
+      spriteID: e6ace744000000000800000000000000
       internalID: 1149160046
       vertices: []
       indices: 
@@ -751,19 +751,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_29
       rect:
         serializedVersion: 2
-        x: 1721
-        y: 1126
-        width: 124
-        height: 299
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b6ef55bdc2dccca4db533329b90a95dd
+      spriteID: 9876d592000000000800000000000000
       internalID: 693987209
       vertices: []
       indices: 
@@ -773,19 +773,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_30
       rect:
         serializedVersion: 2
-        x: 2236
-        y: 1126
-        width: 120
-        height: 301
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: afa55544419bff341ab264617a16631f
+      spriteID: 4aeb9fcdffffffff0800000000000000
       internalID: -587612508
       vertices: []
       indices: 
@@ -795,20 +795,42 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_31
       rect:
         serializedVersion: 2
-        x: 2748
-        y: 1126
-        width: 121
-        height: 301
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f13d81e4a4266434d85c483d256dc448
+      spriteID: abede760000000000800000000000000
       internalID: 108977850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HD2D_Girl_Swordswoman-walk_32
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6933672dffffffff0800000000000000
+      internalID: -764005482
       vertices: []
       indices: 
       edges: []
@@ -817,19 +839,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_33
       rect:
         serializedVersion: 2
-        x: 3254
-        y: 1123
-        width: 128
-        height: 304
+        x: 2560
+        y: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b3a1a696702d8fa4b8a982dcef7951ba
+      spriteID: 909b44f6000000000800000000000000
       internalID: 1866774793
       vertices: []
       indices: 
@@ -839,19 +861,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_34
       rect:
         serializedVersion: 2
-        x: 178
-        y: 1123
-        width: 159
-        height: 295
+        x: 3072
+        y: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 66b4cc2af1a07cb44abeeec935db5481
+      spriteID: 65e295e5000000000800000000000000
       internalID: 1582902870
       vertices: []
       indices: 
@@ -861,19 +883,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_35
       rect:
         serializedVersion: 2
-        x: 693
-        y: 1123
-        width: 155
-        height: 295
+        x: 0
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a3dd254e822cc594fba2e9b36b2d34f8
+      spriteID: ff6e2774000000000800000000000000
       internalID: 1198712575
       vertices: []
       indices: 
@@ -883,19 +905,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_36
       rect:
         serializedVersion: 2
-        x: 185
-        y: 608
-        width: 130
-        height: 305
+        x: 512
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5797a4a2367f3044a9579b7c45a376a8
+      spriteID: 4e030ac4000000000800000000000000
       internalID: 1285566692
       vertices: []
       indices: 
@@ -905,19 +927,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_37
       rect:
         serializedVersion: 2
-        x: 692
-        y: 615
-        width: 133
-        height: 296
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b7717764d3ced5c4ea294fa909b54703
+      spriteID: 43351006000000000800000000000000
       internalID: 1610699572
       vertices: []
       indices: 
@@ -927,19 +949,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_38
       rect:
         serializedVersion: 2
-        x: 715
-        y: 910
-        width: 10
-        height: 4
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d13b18133ab17284585b686c177875ea
+      spriteID: ad666a3affffffff0800000000000000
       internalID: -1549375782
       vertices: []
       indices: 
@@ -949,19 +971,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_39
       rect:
         serializedVersion: 2
-        x: 3254
-        y: 609
-        width: 133
-        height: 303
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2dae245cb506fdc44a698a2dc47b9b32
+      spriteID: 983cc452000000000800000000000000
       internalID: 625787785
       vertices: []
       indices: 
@@ -971,19 +993,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_40
       rect:
         serializedVersion: 2
-        x: 1207
-        y: 615
-        width: 141
-        height: 294
+        x: 2560
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d8879e2f91d7ff540b0d9efcb16389b2
+      spriteID: b5c38d49ffffffff0800000000000000
       internalID: -1797768101
       vertices: []
       indices: 
@@ -993,19 +1015,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_41
       rect:
         serializedVersion: 2
-        x: 1711
-        y: 608
-        width: 169
-        height: 299
+        x: 3072
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e7716b768c0b54543a717c936561f39a
+      spriteID: 72f3ed8effffffff0800000000000000
       internalID: -388088025
       vertices: []
       indices: 
@@ -1015,19 +1037,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_42
       rect:
         serializedVersion: 2
-        x: 2226
-        y: 615
-        width: 151
-        height: 292
+        x: 0
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4a086925bd3d6e3469b9c770a7ec8cb6
+      spriteID: ba255046000000000800000000000000
       internalID: 1678070443
       vertices: []
       indices: 
@@ -1037,19 +1059,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_43
       rect:
         serializedVersion: 2
-        x: 2741
-        y: 615
-        width: 142
-        height: 291
+        x: 512
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 749e89772d27c3e48908a6c7cb2f0d6d
+      spriteID: 57b1ea83000000000800000000000000
       internalID: 950934389
       vertices: []
       indices: 
@@ -1059,19 +1081,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_44
       rect:
         serializedVersion: 2
-        x: 185
-        y: 94
-        width: 124
-        height: 304
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c3e1d0183a2c9804fa55f7577c743965
+      spriteID: b9656feaffffffff0800000000000000
       internalID: -1359587685
       vertices: []
       indices: 
@@ -1081,19 +1103,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_45
       rect:
         serializedVersion: 2
-        x: 692
-        y: 102
-        width: 127
-        height: 300
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 24ea169b017b50c4aa9ae61d7820423f
+      spriteID: fcb213d6000000000800000000000000
       internalID: 1831939023
       vertices: []
       indices: 
@@ -1103,19 +1125,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_46
       rect:
         serializedVersion: 2
-        x: 1214
-        y: 99
-        width: 120
-        height: 311
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 25b153b9d023a7d40989deaff03f9060
+      spriteID: 06ff19f1000000000800000000000000
       internalID: 529661792
       vertices: []
       indices: 
@@ -1125,19 +1147,19 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_47
       rect:
         serializedVersion: 2
-        x: 1721
-        y: 94
-        width: 121
-        height: 311
+        x: 2560
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: cbe4e2536c4d94043a9d90db4296e8f9
+      spriteID: 949524a0000000000800000000000000
       internalID: 172120393
       vertices: []
       indices: 
@@ -1147,64 +1169,20 @@ TextureImporter:
       name: HD2D_Girl_Swordswoman-walk_48
       rect:
         serializedVersion: 2
-        x: 2236
-        y: 102
-        width: 124
-        height: 300
+        x: 3072
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 183d6a342b6e71349ac663987852576f
+      spriteID: 55ed6cd7000000000800000000000000
       internalID: 2110185045
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HD2D_Girl_Swordswoman-walk_49
-      rect:
-        serializedVersion: 2
-        x: 2740
-        y: 94
-        width: 148
-        height: 306
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea9d96e81c72c784b94aa4aaf7a43e58
-      internalID: -1913737201
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HD2D_Girl_Swordswoman-walk_50
-      rect:
-        serializedVersion: 2
-        x: 3254
-        y: 104
-        width: 149
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9fe9cabe067752a4aa72b545e95d010f
-      internalID: 1142750129
       vertices: []
       indices: 
       edges: []
