@@ -18,5 +18,5 @@ MonoBehaviour:
   rewardGold: 10
   rewardExp: 5
   enemySprite: {fileID: 21300000, guid: b1698ce191a2c704cbbe4d813e07db2f, type: 3}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 8301859664473934897, guid: c97878eafae92144d801e2710e23064e, type: 3}
   animatorController: {fileID: 9100000, guid: b385c1155dc6a004e87c5f51120fe7d4, type: 2}

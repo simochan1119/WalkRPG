@@ -8,11 +8,12 @@ public class VillageFreeMove : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public VirtualJoystick joystick;
 
-    [Header("West (Left-Facing) Adjustments")]
-    public float westWidthMultiplier = 1.062f;
-    public float westAnimSpeedMultiplier = 0.85f; // Adjust this in Inspector to tune the walk speed/pitch
+    [Header("Turn Animation Settings")]
+    public float turnDuration = 0.12f; // Time in seconds to complete the turn squash/stretch
 
     private Vector3 originalScale;
+    private Coroutine turnCoroutine;
+    private bool isTurning = false;
 
     void Start()
     {
@@ -50,23 +51,48 @@ public class VillageFreeMove : MonoBehaviour
 
         if (spriteRenderer != null && Mathf.Abs(move.x) > 0.05f)
         {
-            bool isMovingLeft = move.x < 0f;
-            spriteRenderer.flipX = isMovingLeft;
-            if (animator != null)
+            bool wantsFaceLeft = move.x < 0f;
+            
+            // Only trigger turn if the desired facing direction changes and we aren't already turning
+            if (spriteRenderer.flipX != wantsFaceLeft && !isTurning)
             {
-                animator.SetBool("FacingWest", isMovingLeft);
+                if (turnCoroutine != null)
+                    StopCoroutine(turnCoroutine);
+                turnCoroutine = StartCoroutine(TurnRoutine(wantsFaceLeft));
             }
-
-            // Adjust scale width for West
-            transform.localScale = isMovingLeft 
-                ? new Vector3(originalScale.x * westWidthMultiplier, originalScale.y, originalScale.z)
-                : originalScale;
         }
+    }
 
-        // Apply animation speed (pitch) correction dynamically based on current facing direction
-        if (animator != null && spriteRenderer != null)
+    System.Collections.IEnumerator TurnRoutine(bool faceLeft)
+    {
+        isTurning = true;
+        float elapsed = 0f;
+        float halfDuration = turnDuration / 2f;
+
+        // 1. Squash to 0
+        while (elapsed < halfDuration)
         {
-            animator.speed = spriteRenderer.flipX ? westAnimSpeedMultiplier : 1.0f;
+            elapsed += Time.deltaTime;
+            float t = elapsed / halfDuration;
+            transform.localScale = new Vector3(Mathf.Lerp(originalScale.x, 0f, t), originalScale.y, originalScale.z);
+            yield return null;
         }
+
+        // 2. Midpoint: Flip the sprite
+        spriteRenderer.flipX = faceLeft;
+
+        // 3. Stretch back to original
+        elapsed = 0f;
+        while (elapsed < halfDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / halfDuration;
+            transform.localScale = new Vector3(Mathf.Lerp(0f, originalScale.x, t), originalScale.y, originalScale.z);
+            yield return null;
+        }
+
+        transform.localScale = originalScale;
+        isTurning = false;
+        turnCoroutine = null;
     }
 }
