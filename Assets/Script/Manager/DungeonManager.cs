@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Threading.Tasks;
 
 public enum DungeonEventType
 {
@@ -24,6 +25,8 @@ public class DungeonEventPoint
 
 public class DungeonManager : GameSceneManager
 {
+    public static DungeonManager Instance { get; private set; }
+
     [Header("Player")]
     public Transform player;
     public Animator animator;
@@ -39,6 +42,8 @@ public class DungeonManager : GameSceneManager
 
     [Header("VFX")]
     public GameObject bikkuriVFX;
+
+    private Sprite[] pickupSprites;
 
     [Header("Event Points")]
     public DungeonEventPoint[] eventPoints;
@@ -57,6 +62,50 @@ public class DungeonManager : GameSceneManager
 
     protected override void OnSceneReady()
     {
+        Instance = this;
+
+        // Setup looping terrain if not present in the scene
+        WorldChunkSpawner spawner = FindObjectOfType<WorldChunkSpawner>();
+        if (spawner == null)
+        {
+            Debug.Log("[DungeonManager] WorldChunkSpawner not found in scene. Creating one dynamically...");
+            GameObject staticField = GameObject.Find("Field");
+            Vector3 spawnPos = new Vector3(24.776865f, 0f, -1.5517247f);
+            if (staticField != null)
+            {
+                spawnPos = staticField.transform.position;
+                Destroy(staticField);
+            }
+            
+            GameObject spawnerObj = new GameObject("WorldChunkSpawner_Dynamic");
+            spawner = spawnerObj.AddComponent<WorldChunkSpawner>();
+            GameObject fieldPrefab = Resources.Load<GameObject>("Prefab/Field");
+            if (fieldPrefab == null)
+            {
+                Debug.LogError("[DungeonManager] Failed to load Prefab/Field from Resources!");
+            }
+            else
+            {
+                spawner.player = player;
+                spawner.chunkA = fieldPrefab;
+                spawner.chunkB = fieldPrefab;
+                spawner.fixedChunkWidth = 60f;
+                spawner.startX = spawnPos.x;
+                spawner.chunkY = spawnPos.y;
+                spawner.chunkZ = spawnPos.z;
+                spawner.showDebugLog = true;
+                Debug.Log($"[DungeonManager] Successfully initialized dynamic WorldChunkSpawner at X={spawnPos.x}, Y={spawnPos.y}, Z={spawnPos.z}");
+            }
+        }
+
+        // Load and sort pickup sprites
+        pickupSprites = Resources.LoadAll<Sprite>("Heroine_pickup");
+        System.Array.Sort(pickupSprites, (a, b) => {
+            int aNum = GetSpriteIndexFromName(a.name);
+            int bNum = GetSpriteIndexFromName(b.name);
+            return aNum.CompareTo(bNum);
+        });
+
         if (!DungeonSession.HasSession)
         {
             SceneManager.LoadScene("02_Village");
@@ -253,6 +302,8 @@ public class DungeonManager : GameSceneManager
 
     private async void TreasureEvent(DungeonEventPoint point)
     {
+        await PerformPickupAnimationAsync(); // Play Pickup pose
+
         int minG = point.minGold > 0 ? point.minGold : 10;
         int maxG = point.maxGold >= minG ? point.maxGold : 30;
         int gold = Random.Range(minG, maxG + 1);
@@ -270,6 +321,8 @@ public class DungeonManager : GameSceneManager
 
     private async void HealEvent(DungeonEventPoint point)
     {
+        await PerformPickupAnimationAsync(); // Play Pickup pose
+
         await FirebaseManager.Instance.HealPlayerFull();
 
         SetEventText(
@@ -364,6 +417,38 @@ public class DungeonManager : GameSceneManager
 
         if (eventText != null)
             eventText.text = text;
+    }
+
+    private int GetSpriteIndexFromName(string name)
+    {
+        var match = System.Text.RegularExpressions.Regex.Match(name, @"_(\d+)$");
+        if (match.Success)
+        {
+            return int.Parse(match.Groups[1].Value);
+        }
+        return 0;
+    }
+
+    private async Task PerformPickupAnimationAsync()
+    {
+        if (player == null || pickupSprites == null || pickupSprites.Length == 0) return;
+
+        SpriteRenderer playerRenderer = player.GetComponentInChildren<SpriteRenderer>();
+        if (animator == null) animator = player.GetComponentInChildren<Animator>();
+
+        if (playerRenderer != null)
+        {
+            if (animator != null) animator.enabled = false;
+
+            float frameDelay = 0.015f; 
+            for (int i = 0; i < pickupSprites.Length; i++)
+            {
+                playerRenderer.sprite = pickupSprites[i];
+                await Task.Delay((int)(frameDelay * 1000));
+            }
+        }
+
+        if (animator != null) animator.enabled = true;
     }
 
     // --- BattleManager Interaction Support Methods ---

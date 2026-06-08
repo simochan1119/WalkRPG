@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: c8eea5d409f8df549b1a56041875a490
+guid: d9c5f8970a0b05e48abae9113eb4fbfb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,9 +37,9 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 65
+  spritePixelsToUnits: 55
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,1079 +110,1079 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Heroine_back_0
+      name: Heroine_hit_react_0
       rect:
         serializedVersion: 2
         x: 0
         y: 1536
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a575a60dfa11ef70800000000000000
-      internalID: 9214675986617300392
+      spriteID: ac2a6777000000000000000000000000
+      internalID: -4756138934295062848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_1
+      name: Heroine_hit_react_1
       rect:
         serializedVersion: 2
         x: 256
         y: 1536
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 085be9f22a8cacdc0800000000000000
-      internalID: -3617858751729584768
+      spriteID: ac2a6777000000000000000000000001
+      internalID: 6621748203703794728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_2
+      name: Heroine_hit_react_2
       rect:
         serializedVersion: 2
         x: 512
         y: 1536
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3082b1f3ab3d7ff40800000000000000
-      internalID: 5762307045119961091
+      spriteID: ac2a6777000000000000000000000002
+      internalID: 4361297612947068556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_3
+      name: Heroine_hit_react_3
       rect:
         serializedVersion: 2
         x: 768
         y: 1536
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c899983ea7a229220800000000000000
-      internalID: 2491100251181128076
+      spriteID: ac2a6777000000000000000000000003
+      internalID: -1553654529551797490
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_4
+      name: Heroine_hit_react_4
       rect:
         serializedVersion: 2
         x: 1024
         y: 1536
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 69c0cd4df0ff52520800000000000000
-      internalID: 2676825997002411158
+      spriteID: ac2a6777000000000000000000000004
+      internalID: -3316360964497904707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_5
+      name: Heroine_hit_react_5
       rect:
         serializedVersion: 2
         x: 1280
         y: 1536
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: af5d4feef3de6c220800000000000000
-      internalID: 2505951101526005242
+      spriteID: ac2a6777000000000000000000000005
+      internalID: 3000299010062568596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_6
+      name: Heroine_hit_react_6
       rect:
         serializedVersion: 2
         x: 1536
         y: 1536
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cfe03b269fd9c9e00800000000000000
-      internalID: 1052890107326172924
+      spriteID: ac2a6777000000000000000000000006
+      internalID: -387324947971040939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_7
+      name: Heroine_hit_react_7
       rect:
         serializedVersion: 2
         x: 0
         y: 1280
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e695d21adffce0370800000000000000
-      internalID: 8290792652273441134
+      spriteID: ac2a6777000000000000000000000007
+      internalID: -6769896693808300780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_8
+      name: Heroine_hit_react_8
       rect:
         serializedVersion: 2
         x: 256
         y: 1280
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 48fb8860f8c242ad0800000000000000
-      internalID: -2728006481478107260
+      spriteID: ac2a6777000000000000000000000008
+      internalID: -484198733530654356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_9
+      name: Heroine_hit_react_9
       rect:
         serializedVersion: 2
         x: 512
         y: 1280
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f34bd58cb5cc42ae0800000000000000
-      internalID: -1574909275097156545
+      spriteID: ac2a6777000000000000000000000009
+      internalID: 4746813649013680088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_10
+      name: Heroine_hit_react_10
       rect:
         serializedVersion: 2
         x: 768
         y: 1280
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 11e16257b894208f0800000000000000
-      internalID: -575816939035288047
+      spriteID: ac2a677700000000000000000000000a
+      internalID: -3457062655687861617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_11
+      name: Heroine_hit_react_11
       rect:
         serializedVersion: 2
         x: 1024
         y: 1280
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 86df87ef055a2f820800000000000000
-      internalID: 2950602473166404968
+      spriteID: ac2a677700000000000000000000000b
+      internalID: -271203626449577287
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_12
+      name: Heroine_hit_react_12
       rect:
         serializedVersion: 2
         x: 1280
         y: 1280
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d842e7b749697f760800000000000000
-      internalID: 7491622069625300109
+      spriteID: ac2a677700000000000000000000000c
+      internalID: -6298456265029743366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_13
+      name: Heroine_hit_react_13
       rect:
         serializedVersion: 2
         x: 1536
         y: 1280
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: af3dd5902781d7d20800000000000000
-      internalID: 3277802981858071546
+      spriteID: ac2a677700000000000000000000000d
+      internalID: -1268708084243357155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_14
+      name: Heroine_hit_react_14
       rect:
         serializedVersion: 2
         x: 0
         y: 1024
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 59aea985c63b5f0d0800000000000000
-      internalID: -3389605866602042731
+      spriteID: ac2a677700000000000000000000000e
+      internalID: -5671059621679134753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_15
+      name: Heroine_hit_react_15
       rect:
         serializedVersion: 2
         x: 256
         y: 1024
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cece3a2a6702aa630800000000000000
-      internalID: 3938996517995801836
+      spriteID: ac2a677700000000000000000000000f
+      internalID: 59532517399112265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_16
+      name: Heroine_hit_react_16
       rect:
         serializedVersion: 2
         x: 512
         y: 1024
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7fbab9b359037c40800000000000000
-      internalID: 5508757024407207802
+      spriteID: ac2a6777000000000000000000000010
+      internalID: 5978270142410119058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_17
+      name: Heroine_hit_react_17
       rect:
         serializedVersion: 2
         x: 768
         y: 1024
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e39c4c73313f1ee80800000000000000
-      internalID: -8150966586698315458
+      spriteID: ac2a6777000000000000000000000011
+      internalID: 7637676785389529848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_18
+      name: Heroine_hit_react_18
       rect:
         serializedVersion: 2
         x: 1024
         y: 1024
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: beae78fc75d3f5af0800000000000000
-      internalID: -405537994086814997
+      spriteID: ac2a6777000000000000000000000012
+      internalID: -983363967684501125
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_19
+      name: Heroine_hit_react_19
       rect:
         serializedVersion: 2
         x: 1280
         y: 1024
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.48457}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 40a219eeb9ddfc3c0800000000000000
-      internalID: -4337004254342338044
+      spriteID: ac2a6777000000000000000000000013
+      internalID: 7201815588733178200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_20
+      name: Heroine_hit_react_20
       rect:
         serializedVersion: 2
         x: 1536
         y: 1024
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c32dc7fc9ce3e0f0800000000000000
-      internalID: -1088766525977058363
+      spriteID: ac2a6777000000000000000000000014
+      internalID: 2885953165277847137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_21
+      name: Heroine_hit_react_21
       rect:
         serializedVersion: 2
         x: 0
         y: 768
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a229d96afca3271c0800000000000000
-      internalID: -4507475613516459478
+      spriteID: ac2a6777000000000000000000000015
+      internalID: 6503604074511181009
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_22
+      name: Heroine_hit_react_22
       rect:
         serializedVersion: 2
         x: 256
         y: 768
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 800ace7403e18cd10800000000000000
-      internalID: 2145998415155994632
+      spriteID: ac2a6777000000000000000000000016
+      internalID: -8003851228566424236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_23
+      name: Heroine_hit_react_23
       rect:
         serializedVersion: 2
         x: 512
         y: 768
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76d9b4754a125e210800000000000000
-      internalID: 1361531452072369511
+      spriteID: ac2a6777000000000000000000000017
+      internalID: -570446160840602359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_24
+      name: Heroine_hit_react_24
       rect:
         serializedVersion: 2
         x: 768
         y: 768
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a6fccebab4ede86d0800000000000000
-      internalID: -2986205086311723158
+      spriteID: ac2a6777000000000000000000000018
+      internalID: -5168388816883333088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_25
+      name: Heroine_hit_react_25
       rect:
         serializedVersion: 2
         x: 1024
         y: 768
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 71f9b2b30bfc44aa0800000000000000
-      internalID: -6177584433031569641
+      spriteID: ac2a6777000000000000000000000019
+      internalID: 963337675645933438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_26
+      name: Heroine_hit_react_26
       rect:
         serializedVersion: 2
         x: 1280
         y: 768
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3d6dd5486d8b927a0800000000000000
-      internalID: -6401382163847194925
+      spriteID: ac2a677700000000000000000000001a
+      internalID: 5637217939690841796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_27
+      name: Heroine_hit_react_27
       rect:
         serializedVersion: 2
         x: 1536
         y: 768
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6f5e3c7a9baa1b0c0800000000000000
-      internalID: -4561677233189296650
+      spriteID: ac2a677700000000000000000000001b
+      internalID: 8842661155482605121
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_28
+      name: Heroine_hit_react_28
       rect:
         serializedVersion: 2
         x: 0
         y: 512
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e443d50759c8fad60800000000000000
-      internalID: 7903690444521681998
+      spriteID: ac2a677700000000000000000000001c
+      internalID: 4555113646853775328
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_29
+      name: Heroine_hit_react_29
       rect:
         serializedVersion: 2
         x: 256
         y: 512
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c45735434eb7da6b0800000000000000
-      internalID: -5283430567775079092
+      spriteID: ac2a677700000000000000000000001d
+      internalID: 2867174785619191219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_30
+      name: Heroine_hit_react_30
       rect:
         serializedVersion: 2
         x: 512
         y: 512
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e4cb762714911290800000000000000
-      internalID: -7921387442417187607
+      spriteID: ac2a677700000000000000000000001e
+      internalID: -7732178587540661835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_31
+      name: Heroine_hit_react_31
       rect:
         serializedVersion: 2
         x: 768
         y: 512
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58e0f80ad1a290fe0800000000000000
-      internalID: -1222399517118230907
+      spriteID: ac2a677700000000000000000000001f
+      internalID: -5472410760559281375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_32
+      name: Heroine_hit_react_32
       rect:
         serializedVersion: 2
         x: 1024
         y: 512
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 391a531d7c60d63f0800000000000000
-      internalID: -906060494753390189
+      spriteID: ac2a6777000000000000000000000020
+      internalID: -5725648905064683615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_33
+      name: Heroine_hit_react_33
       rect:
         serializedVersion: 2
         x: 1280
         y: 512
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d0a92fb01c9f24d80800000000000000
-      internalID: -8267771358374356467
+      spriteID: ac2a6777000000000000000000000021
+      internalID: -2989236937347284160
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_34
+      name: Heroine_hit_react_34
       rect:
         serializedVersion: 2
         x: 1536
         y: 512
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e736ed7e2781f1a30800000000000000
-      internalID: 4188093060273300350
+      spriteID: ac2a6777000000000000000000000022
+      internalID: -3067725801621124734
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_35
+      name: Heroine_hit_react_35
       rect:
         serializedVersion: 2
         x: 0
         y: 256
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 07c649550901e2a90800000000000000
-      internalID: -7336908530842833808
+      spriteID: ac2a6777000000000000000000000023
+      internalID: -1779736044819249262
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_36
+      name: Heroine_hit_react_36
       rect:
         serializedVersion: 2
         x: 256
         y: 256
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f60ca7c5506a8d1f0800000000000000
-      internalID: -1019882773642821521
+      spriteID: ac2a6777000000000000000000000024
+      internalID: -8133638366955834564
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_37
+      name: Heroine_hit_react_37
       rect:
         serializedVersion: 2
         x: 512
         y: 256
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e4de20ed4633d2dd0800000000000000
-      internalID: -2509292909061018290
+      spriteID: ac2a6777000000000000000000000025
+      internalID: -7315476504127108362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_38
+      name: Heroine_hit_react_38
       rect:
         serializedVersion: 2
         x: 768
         y: 256
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b3295da8218ef6210800000000000000
-      internalID: 1328535581433893435
+      spriteID: ac2a6777000000000000000000000026
+      internalID: 8838367445703739716
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_39
+      name: Heroine_hit_react_39
       rect:
         serializedVersion: 2
         x: 1024
         y: 256
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bc9ac9d345b7451c0800000000000000
-      internalID: -4515848924604618293
+      spriteID: ac2a6777000000000000000000000027
+      internalID: 2305732989285551344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_40
+      name: Heroine_hit_react_40
       rect:
         serializedVersion: 2
         x: 1280
         y: 256
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c1f714b696db0d360800000000000000
-      internalID: 7192456865379352348
+      spriteID: ac2a6777000000000000000000000028
+      internalID: -4390640460408636973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_41
+      name: Heroine_hit_react_41
       rect:
         serializedVersion: 2
         x: 1536
         y: 256
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 78bde183d0774d4e0800000000000000
-      internalID: -1957809039339496569
+      spriteID: ac2a6777000000000000000000000029
+      internalID: 3726148401186726988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_42
+      name: Heroine_hit_react_42
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 638744be65a4bfc90800000000000000
-      internalID: -7135027447463643082
+      spriteID: ac2a677700000000000000000000002a
+      internalID: -3712292403080079068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_43
+      name: Heroine_hit_react_43
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 346a4708b8fd253d0800000000000000
-      internalID: -3219264993367906749
+      spriteID: ac2a677700000000000000000000002b
+      internalID: 2478752241717108374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_44
+      name: Heroine_hit_react_44
       rect:
         serializedVersion: 2
         x: 512
         y: 0
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a35bb4cc25ce075e0800000000000000
-      internalID: -1913770001273473734
+      spriteID: ac2a677700000000000000000000002c
+      internalID: 1154785967551462756
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_45
+      name: Heroine_hit_react_45
       rect:
         serializedVersion: 2
         x: 768
         y: 0
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f1ad9ba037b00510800000000000000
-      internalID: 1513410894462034416
+      spriteID: ac2a677700000000000000000000002d
+      internalID: 4019933817614965894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_46
+      name: Heroine_hit_react_46
       rect:
         serializedVersion: 2
         x: 1024
         y: 0
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 03a48a8506ecbf710800000000000000
-      internalID: 1728201795226323504
+      spriteID: ac2a677700000000000000000000002e
+      internalID: 1989586177085157882
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_47
+      name: Heroine_hit_react_47
       rect:
         serializedVersion: 2
         x: 1280
         y: 0
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0e097cfd495a30a50800000000000000
-      internalID: 6486209947171786976
+      spriteID: ac2a677700000000000000000000002f
+      internalID: -8282922221996719194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heroine_back_48
+      name: Heroine_hit_react_48
       rect:
         serializedVersion: 2
         x: 1536
         y: 0
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.488477}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cfe952440b282c800800000000000000
-      internalID: 631210591354461948
+      spriteID: ac2a6777000000000000000000000030
+      internalID: -4385065131694729043
       vertices: []
       indices: 
       edges: []
@@ -1201,55 +1201,55 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Heroine_back_0: 9214675986617300392
-      Heroine_back_1: -3617858751729584768
-      Heroine_back_10: -575816939035288047
-      Heroine_back_11: 2950602473166404968
-      Heroine_back_12: 7491622069625300109
-      Heroine_back_13: 3277802981858071546
-      Heroine_back_14: -3389605866602042731
-      Heroine_back_15: 3938996517995801836
-      Heroine_back_16: 5508757024407207802
-      Heroine_back_17: -8150966586698315458
-      Heroine_back_18: -405537994086814997
-      Heroine_back_19: -4337004254342338044
-      Heroine_back_2: 5762307045119961091
-      Heroine_back_20: -1088766525977058363
-      Heroine_back_21: -4507475613516459478
-      Heroine_back_22: 2145998415155994632
-      Heroine_back_23: 1361531452072369511
-      Heroine_back_24: -2986205086311723158
-      Heroine_back_25: -6177584433031569641
-      Heroine_back_26: -6401382163847194925
-      Heroine_back_27: -4561677233189296650
-      Heroine_back_28: 7903690444521681998
-      Heroine_back_29: -5283430567775079092
-      Heroine_back_3: 2491100251181128076
-      Heroine_back_30: -7921387442417187607
-      Heroine_back_31: -1222399517118230907
-      Heroine_back_32: -906060494753390189
-      Heroine_back_33: -8267771358374356467
-      Heroine_back_34: 4188093060273300350
-      Heroine_back_35: -7336908530842833808
-      Heroine_back_36: -1019882773642821521
-      Heroine_back_37: -2509292909061018290
-      Heroine_back_38: 1328535581433893435
-      Heroine_back_39: -4515848924604618293
-      Heroine_back_4: 2676825997002411158
-      Heroine_back_40: 7192456865379352348
-      Heroine_back_41: -1957809039339496569
-      Heroine_back_42: -7135027447463643082
-      Heroine_back_43: -3219264993367906749
-      Heroine_back_44: -1913770001273473734
-      Heroine_back_45: 1513410894462034416
-      Heroine_back_46: 1728201795226323504
-      Heroine_back_47: 6486209947171786976
-      Heroine_back_48: 631210591354461948
-      Heroine_back_5: 2505951101526005242
-      Heroine_back_6: 1052890107326172924
-      Heroine_back_7: 8290792652273441134
-      Heroine_back_8: -2728006481478107260
-      Heroine_back_9: -1574909275097156545
+      Heroine_hit_react_0: -4756138934295062848
+      Heroine_hit_react_1: 6621748203703794728
+      Heroine_hit_react_10: -3457062655687861617
+      Heroine_hit_react_11: -271203626449577287
+      Heroine_hit_react_12: -6298456265029743366
+      Heroine_hit_react_13: -1268708084243357155
+      Heroine_hit_react_14: -5671059621679134753
+      Heroine_hit_react_15: 59532517399112265
+      Heroine_hit_react_16: 5978270142410119058
+      Heroine_hit_react_17: 7637676785389529848
+      Heroine_hit_react_18: -983363967684501125
+      Heroine_hit_react_19: 7201815588733178200
+      Heroine_hit_react_2: 4361297612947068556
+      Heroine_hit_react_20: 2885953165277847137
+      Heroine_hit_react_21: 6503604074511181009
+      Heroine_hit_react_22: -8003851228566424236
+      Heroine_hit_react_23: -570446160840602359
+      Heroine_hit_react_24: -5168388816883333088
+      Heroine_hit_react_25: 963337675645933438
+      Heroine_hit_react_26: 5637217939690841796
+      Heroine_hit_react_27: 8842661155482605121
+      Heroine_hit_react_28: 4555113646853775328
+      Heroine_hit_react_29: 2867174785619191219
+      Heroine_hit_react_3: -1553654529551797490
+      Heroine_hit_react_30: -7732178587540661835
+      Heroine_hit_react_31: -5472410760559281375
+      Heroine_hit_react_32: -5725648905064683615
+      Heroine_hit_react_33: -2989236937347284160
+      Heroine_hit_react_34: -3067725801621124734
+      Heroine_hit_react_35: -1779736044819249262
+      Heroine_hit_react_36: -8133638366955834564
+      Heroine_hit_react_37: -7315476504127108362
+      Heroine_hit_react_38: 8838367445703739716
+      Heroine_hit_react_39: 2305732989285551344
+      Heroine_hit_react_4: -3316360964497904707
+      Heroine_hit_react_40: -4390640460408636973
+      Heroine_hit_react_41: 3726148401186726988
+      Heroine_hit_react_42: -3712292403080079068
+      Heroine_hit_react_43: 2478752241717108374
+      Heroine_hit_react_44: 1154785967551462756
+      Heroine_hit_react_45: 4019933817614965894
+      Heroine_hit_react_46: 1989586177085157882
+      Heroine_hit_react_47: -8282922221996719194
+      Heroine_hit_react_48: -4385065131694729043
+      Heroine_hit_react_5: 3000299010062568596
+      Heroine_hit_react_6: -387324947971040939
+      Heroine_hit_react_7: -6769896693808300780
+      Heroine_hit_react_8: -484198733530654356
+      Heroine_hit_react_9: 4746813649013680088
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

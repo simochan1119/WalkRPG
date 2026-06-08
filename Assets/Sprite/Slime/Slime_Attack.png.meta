@@ -148,14 +148,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.5, y: 0.375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1dd7cc6949d2cb6d0800000000000000
+      spriteID: d0fad359000000000000000000000000
       internalID: -2973451537762976303
       vertices: []
       indices: 
@@ -170,14 +170,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.5, y: 0.34375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1fe09e190c4cee640800000000000000
+      spriteID: d0fad359000000000000000000000001
       internalID: 5111238958472826609
       vertices: []
       indices: 
@@ -192,14 +192,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.5, y: 0.375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8fe1a497d75820f70800000000000000
+      spriteID: d0fad359000000000000000000000002
       internalID: 9152024166722576120
       vertices: []
       indices: 
@@ -214,14 +214,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.5, y: 0.34375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 920ba8b49bec64310800000000000000
+      spriteID: d0fad359000000000000000000000003
       internalID: 1389024830322028585
       vertices: []
       indices: 
@@ -236,14 +236,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.5, y: 0.328125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 40abe2106d1353b40800000000000000
+      spriteID: d0fad359000000000000000000000004
       internalID: 5419292521822861828
       vertices: []
       indices: 
@@ -258,14 +258,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.5, y: 0.34375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d13ea246e97e6cf80800000000000000
+      spriteID: d0fad359000000000000000000000005
       internalID: -8086521413425765603
       vertices: []
       indices: 
@@ -280,14 +280,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.5, y: 0.34375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5fa99141c6644f280800000000000000
+      spriteID: d0fad359000000000000000000000006
       internalID: -9010499524453885195
       vertices: []
       indices: 
@@ -302,14 +302,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.5, y: 0.3125}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2506d354110ed7930800000000000000
+      spriteID: d0fad359000000000000000000000007
       internalID: 4142713597031440466
       vertices: []
       indices: 
@@ -324,14 +324,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0}
+      pivot: {x: 0.5, y: 0.34375}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bc21c9ad3b0f62d60800000000000000
+      spriteID: d0fad359000000000000000000000008
       internalID: 7865238454506623691
       vertices: []
       indices: 
@@ -353,7 +353,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d9fbc12213e94e950800000000000000
+      spriteID: d0fad359000000000000000000000009
       internalID: 6477476097928511389
       vertices: []
       indices: 
@@ -363,7 +363,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d59ac07a51e4c27469cc558c77e570e9
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -371,9 +371,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
       Slime_Attack_0: -2973451537762976303
       Slime_Attack_1: 5111238958472826609
@@ -385,15 +383,6 @@ TextureImporter:
       Slime_Attack_7: 4142713597031440466
       Slime_Attack_8: 7865238454506623691
       Slime_Attack_9: 6477476097928511389
-      Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe2-ezgif.com-gif-to-sprite-converter_0: 633136765
-      Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe2-ezgif.com-gif-to-sprite-converter_1: 1337629592
-      Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe2-ezgif.com-gif-to-sprite-converter_2: -605449230
-      Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe2-ezgif.com-gif-to-sprite-converter_3: 1205556817
-      Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe2-ezgif.com-gif-to-sprite-converter_4: -1745619614
-      Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe2-ezgif.com-gif-to-sprite-converter_5: -1727555718
-      Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe2-ezgif.com-gif-to-sprite-converter_6: 1704004303
-      Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe2-ezgif.com-gif-to-sprite-converter_7: -1855015576
-      Use_the_reference_slime_image_to_create_a_slime_character._Keep_the_overall_appe2-ezgif.com-gif-to-sprite-converter_8: -33163255
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -57,6 +57,9 @@ public class BattleManager : MonoBehaviour
     public float SlashCooldownRemaining => slashCooldownTimer;
     public float PotionCooldownRemaining => potionCooldownTimer;
 
+    private Sprite[] kickSprites;
+    private Sprite[] hitReactSprites;
+
     void Awake()
     {
         if (Instance != null)
@@ -65,6 +68,34 @@ public class BattleManager : MonoBehaviour
             return;
         }
         Instance = this;
+    }
+
+    void Start()
+    {
+        kickSprites = Resources.LoadAll<Sprite>("Heroine_kick");
+        hitReactSprites = Resources.LoadAll<Sprite>("Heroine_hit_react");
+
+        System.Array.Sort(kickSprites, (a, b) => {
+            int aNum = GetSpriteIndexFromName(a.name);
+            int bNum = GetSpriteIndexFromName(b.name);
+            return aNum.CompareTo(bNum);
+        });
+
+        System.Array.Sort(hitReactSprites, (a, b) => {
+            int aNum = GetSpriteIndexFromName(a.name);
+            int bNum = GetSpriteIndexFromName(b.name);
+            return aNum.CompareTo(bNum);
+        });
+    }
+
+    private int GetSpriteIndexFromName(string name)
+    {
+        var match = System.Text.RegularExpressions.Regex.Match(name, @"_(\d+)$");
+        if (match.Success)
+        {
+            return int.Parse(match.Groups[1].Value);
+        }
+        return 0;
     }
 
     void Update()
@@ -284,6 +315,9 @@ public class BattleManager : MonoBehaviour
 
         spawnedEnemyController.TakeDamage(playerDamage);
 
+        // Play Kick frame animation
+        StartCoroutine(PerformPlayerKickAnimation());
+
         // Try triggering a Knockback (stun) effect
         bool didKnockback = TryTriggerKnockback();
         if (didKnockback)
@@ -318,6 +352,9 @@ public class BattleManager : MonoBehaviour
             // Execute as background async task safely
             _ = FirebaseManager.Instance.DamagePlayer(enemyDamage);
         }
+
+        // Play Hit React frame animation
+        StartCoroutine(PerformPlayerHitReactAnimation());
 
         if (activeDungeonManager != null)
         {
@@ -364,6 +401,9 @@ public class BattleManager : MonoBehaviour
         slashCooldownTimer = slashCooldownDuration; // Set cooldown
 
         spawnedEnemyController.TakeDamage(skillDamage);
+
+        // Play Kick frame animation
+        StartCoroutine(PerformPlayerKickAnimation());
 
         // Slash also has a slightly higher chance to knockback (e.g., 40%)
         bool didKnockback = Random.value <= 0.4f;
@@ -484,6 +524,74 @@ public class BattleManager : MonoBehaviour
             // AUTOMATIC PROGRESSION: Auto-continue exploration without manual click
             activeDungeonManager.OnClickContinue();
         }
+    }
+
+    private IEnumerator PerformPlayerKickAnimation()
+    {
+        if (activeDungeonManager == null || activeDungeonManager.player == null || kickSprites == null || kickSprites.Length == 0) yield break;
+
+        SpriteRenderer playerRenderer = activeDungeonManager.player.GetComponentInChildren<SpriteRenderer>();
+        Animator playerAnimator = activeDungeonManager.player.GetComponentInChildren<Animator>();
+
+        if (playerRenderer != null)
+        {
+            if (playerAnimator != null) playerAnimator.enabled = false;
+
+            float frameDelay = 0.012f; // Fast and snappy kick motion
+            for (int i = 0; i < kickSprites.Length; i++)
+            {
+                playerRenderer.sprite = kickSprites[i];
+                yield return new WaitForSeconds(frameDelay);
+            }
+        }
+
+        if (playerAnimator != null) playerAnimator.enabled = true;
+    }
+
+    private IEnumerator PerformPlayerHitReactAnimation()
+    {
+        if (activeDungeonManager == null || activeDungeonManager.player == null || hitReactSprites == null || hitReactSprites.Length == 0) yield break;
+
+        Transform playerTransform = activeDungeonManager.player;
+        SpriteRenderer playerRenderer = playerTransform.GetComponentInChildren<SpriteRenderer>();
+        Animator playerAnimator = playerTransform.GetComponentInChildren<Animator>();
+
+        if (playerRenderer != null)
+        {
+            if (playerAnimator != null) playerAnimator.enabled = false;
+        }
+
+        Vector3 origPos = playerTransform.position;
+        Vector3 targetPos = origPos + Vector3.left * 0.5f;
+
+        float frameDelay = 0.012f;
+        int totalFrames = hitReactSprites.Length;
+
+        for (int i = 0; i < totalFrames; i++)
+        {
+            if (playerRenderer != null)
+            {
+                playerRenderer.sprite = hitReactSprites[i];
+            }
+
+            float t = (float)i / (totalFrames - 1);
+            if (t < 0.4f)
+            {
+                float slideT = t / 0.4f;
+                playerTransform.position = Vector3.Lerp(origPos, targetPos, slideT);
+            }
+            else
+            {
+                float slideT = (t - 0.4f) / 0.6f;
+                playerTransform.position = Vector3.Lerp(targetPos, origPos, slideT);
+            }
+
+            yield return new WaitForSeconds(frameDelay);
+        }
+
+        playerTransform.position = origPos;
+
+        if (playerAnimator != null) playerAnimator.enabled = true;
     }
 }
 

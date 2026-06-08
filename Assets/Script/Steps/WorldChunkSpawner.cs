@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WorldChunkSpawner : MonoBehaviour
@@ -10,10 +9,9 @@ public class WorldChunkSpawner : MonoBehaviour
     public GameObject chunkA;
     public GameObject chunkB;
 
-    [Header("Spawn Settings")]
-    public int initialChunkCount = 4;
-    public float spawnAheadDistance = 120f;
-    public float despawnBehindDistance = 120f;
+    [Header("Loop Settings")]
+    [Tooltip("The actual width of a single chunk in Unity units. Used to align and warp chunks seamlessly.")]
+    public float fixedChunkWidth = 60f;
 
     [Header("Position")]
     public float startX = 0f;
@@ -21,145 +19,98 @@ public class WorldChunkSpawner : MonoBehaviour
     public float chunkZ = 0f;
 
     [Header("Debug")]
-    public bool showDebugLog = true;
+    public bool showDebugLog = false;
 
-    private readonly Queue<ChunkInfo> activeChunks = new Queue<ChunkInfo>();
-
-    private int nextIndex = 0;
-    private float nextSpawnX;
-
-    private class ChunkInfo
-    {
-        public GameObject obj;
-        public float startX;
-        public float width;
-        public float endX => startX + width;
-    }
+    private GameObject[] pooledChunks = new GameObject[3];
 
     void Start()
     {
         if (player == null)
         {
-            Debug.LogError("WorldChunkSpawner: player Ç™ñ¢ê›íËÇ≈Ç∑ÅB");
+            Debug.LogError("WorldChunkSpawner: Player transform is not assigned!");
             enabled = false;
             return;
         }
 
         if (chunkA == null || chunkB == null)
         {
-            Debug.LogError("WorldChunkSpawner: chunkA / chunkB Ç™ñ¢ê›íËÇ≈Ç∑ÅB");
+            Debug.LogError("WorldChunkSpawner: chunkA or chunkB is not assigned!");
             enabled = false;
             return;
         }
 
-        nextSpawnX = startX;
-
-        for (int i = 0; i < initialChunkCount; i++)
+        // Instantiate exactly 3 chunks (A, B, A) to cover enough view distance for the camera
+        GameObject[] prefabs = new GameObject[] { chunkA, chunkB, chunkA };
+        for (int i = 0; i < pooledChunks.Length; i++)
         {
-            SpawnNextChunk();
+            float spawnX = startX + (i * fixedChunkWidth);
+            Vector3 pos = new Vector3(spawnX, chunkY, chunkZ);
+            pooledChunks[i] = Instantiate(prefabs[i], pos, Quaternion.identity, transform);
+            pooledChunks[i].name = prefabs[i].name + "_Loop_" + i;
+        }
+
+        if (showDebugLog)
+        {
+            Debug.Log($"[WorldChunkSpawner] Initialized 3-chunk pool. Total width covered: {fixedChunkWidth * 3} units.");
         }
     }
 
     void LateUpdate()
     {
-        SpawnAheadIfNeeded();
-        DespawnBehindIfNeeded();
-    }
+        if (player == null) return;
 
-    private void SpawnAheadIfNeeded()
-    {
-        while (nextSpawnX < player.position.x + spawnAheadDistance)
+        float playerX = player.position.x;
+
+        // Warp forward (Moving Right)
+        // If a chunk is left behind the player by more than 1.1x chunk width,
+        // it means it's completely out of the camera's left view. Warp it to the right of the furthest forward chunk.
+        foreach (var chunk in pooledChunks)
         {
-            SpawnNextChunk();
-        }
-    }
+            if (chunk == null) continue;
 
-    private void DespawnBehindIfNeeded()
-    {
-        while (activeChunks.Count > 0)
-        {
-            ChunkInfo oldest = activeChunks.Peek();
+            float chunkX = chunk.transform.position.x;
 
-            if (oldest == null || oldest.obj == null)
+            if (playerX - chunkX > fixedChunkWidth * 1.1f)
             {
-                activeChunks.Dequeue();
-                continue;
-            }
+                // Find the current furthest forward chunk's X position
+                float maxForwardX = -999999f;
+                foreach (var c in pooledChunks)
+                {
+                    if (c != null && c.transform.position.x > maxForwardX)
+                    {
+                        maxForwardX = c.transform.position.x;
+                    }
+                }
 
-            if (oldest.endX < player.position.x - despawnBehindDistance)
-            {
-                activeChunks.Dequeue();
+                float newX = maxForwardX + fixedChunkWidth;
+                chunk.transform.position = new Vector3(newX, chunkY, chunkZ);
 
                 if (showDebugLog)
-                    Debug.Log("Destroy Chunk: " + oldest.obj.name);
-
-                Destroy(oldest.obj);
+                {
+                    Debug.Log($"[WorldChunkSpawner] Warped {chunk.name} forward to X={newX} (Player at X={playerX:F2})");
+                }
             }
-            else
+            // Warp backward (Moving Left - Village fallback)
+            else if (chunkX - playerX > fixedChunkWidth * 1.9f)
             {
-                break;
+                // Find the current furthest backward chunk's X position
+                float minBackwardX = 999999f;
+                foreach (var c in pooledChunks)
+                {
+                    if (c != null && c.transform.position.x < minBackwardX)
+                    {
+                        minBackwardX = c.transform.position.x;
+                    }
+                }
+
+                float newX = minBackwardX - fixedChunkWidth;
+                chunk.transform.position = new Vector3(newX, chunkY, chunkZ);
+
+                if (showDebugLog)
+                {
+                    Debug.Log($"[WorldChunkSpawner] Warped {chunk.name} backward to X={newX} (Player at X={playerX:F2})");
+                }
             }
         }
-    }
-
-    private void SpawnNextChunk()
-    {
-        GameObject prefab = nextIndex % 2 == 0 ? chunkA : chunkB;
-
-        Vector3 spawnPos = new Vector3(nextSpawnX, chunkY, chunkZ);
-
-        GameObject chunk = Instantiate(prefab, spawnPos, Quaternion.identity, transform);
-        chunk.name = prefab.name + "_" + nextIndex;
-
-        float width = GetChunkWidth(chunk);
-
-        if (width <= 0f)
-        {
-            Debug.LogError("Chunk width ÇéÊìæÇ≈Ç´Ç‹ÇπÇÒÇ≈ÇµÇΩ: " + chunk.name);
-            Destroy(chunk);
-            return;
-        }
-
-        ChunkInfo info = new ChunkInfo
-        {
-            obj = chunk,
-            startX = nextSpawnX,
-            width = width
-        };
-
-        activeChunks.Enqueue(info);
-
-        if (showDebugLog)
-        {
-            Debug.Log(
-                "Spawn Chunk: " + chunk.name +
-                " / StartX: " + info.startX +
-                " / Width: " + info.width +
-                " / EndX: " + info.endX
-            );
-        }
-
-        nextSpawnX += width;
-        nextIndex++;
-    }
-
-    private float GetChunkWidth(GameObject chunk)
-    {
-        Renderer[] renderers = chunk.GetComponentsInChildren<Renderer>();
-
-        if (renderers == null || renderers.Length == 0)
-        {
-            Debug.LogWarning("Renderer Ç™å©Ç¬Ç©ÇËÇ‹ÇπÇÒ: " + chunk.name);
-            return 0f;
-        }
-
-        Bounds bounds = renderers[0].bounds;
-
-        for (int i = 1; i < renderers.Length; i++)
-        {
-            bounds.Encapsulate(renderers[i].bounds);
-        }
-
-        return bounds.size.x;
     }
 }

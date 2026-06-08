@@ -16,18 +16,12 @@ public class VillageFreeMove : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public VirtualJoystick joystick;
 
-    [Header("Turn Animation Settings")]
-    public float turnDuration = 0.12f; // Time in seconds to complete the turn squash/stretch
-
     [Header("Sprite Sheets")]
     public Sprite[] eastSprites;
     public Sprite[] westSprites;
     public Sprite[] frontSprites;
     public Sprite[] backSprites;
 
-    private Vector3 originalScale;
-    private Coroutine turnCoroutine;
-    private bool isTurning = false;
     private FacingDirection currentDirection = FacingDirection.East;
 
     void Start()
@@ -35,7 +29,6 @@ public class VillageFreeMove : MonoBehaviour
         if (animator == null)
             animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        originalScale = transform.localScale;
 
         SortSprites();
     }
@@ -104,12 +97,10 @@ public class VillageFreeMove : MonoBehaviour
                 wantsDirection = move.z > 0f ? FacingDirection.North : FacingDirection.South;
             }
             
-            // Only trigger turn if the desired facing direction changes and we aren't already turning
-            if (currentDirection != wantsDirection && !isTurning)
+            // Instantly change direction
+            if (currentDirection != wantsDirection)
             {
-                if (turnCoroutine != null)
-                    StopCoroutine(turnCoroutine);
-                turnCoroutine = StartCoroutine(TurnRoutine(wantsDirection));
+                currentDirection = wantsDirection;
             }
         }
     }
@@ -128,7 +119,7 @@ public class VillageFreeMove : MonoBehaviour
                 flip = false;
                 break;
             case FacingDirection.West:
-                targetSheet = westSprites;
+                targetSheet = eastSprites; // Reuse East sprites for absolute size symmetry
                 flip = true;
                 break;
             case FacingDirection.North:
@@ -140,6 +131,7 @@ public class VillageFreeMove : MonoBehaviour
                 flip = false;
                 break;
         }
+
 
         if (targetSheet != null && targetSheet.Length > 0 && eastSprites != null && eastSprites.Length > 0)
         {
@@ -167,38 +159,14 @@ public class VillageFreeMove : MonoBehaviour
         }
         
         spriteRenderer.flipX = flip;
-    }
 
-    System.Collections.IEnumerator TurnRoutine(FacingDirection targetDir)
-    {
-        isTurning = true;
-        float elapsed = 0f;
-        float halfDuration = turnDuration / 2f;
-
-        // 1. Squash to 0
-        while (elapsed < halfDuration)
+        // Apply scale compensation based on direction to keep visual thickness consistent
+        // Make the character slightly taller (Y = 1.1f) as requested
+        Vector3 targetScale = new Vector3(1f, 1.1f, 1f);
+        if (currentDirection == FacingDirection.North)
         {
-            elapsed += Time.deltaTime;
-            float t = elapsed / halfDuration;
-            transform.localScale = new Vector3(Mathf.Lerp(originalScale.x, 0f, t), originalScale.y, originalScale.z);
-            yield return null;
+            targetScale.x = 0.9f; // Slightly thin the width when facing North (backwards)
         }
-
-        // 2. Midpoint: Update direction
-        currentDirection = targetDir;
-
-        // 3. Stretch back to original
-        elapsed = 0f;
-        while (elapsed < halfDuration)
-        {
-            elapsed += Time.deltaTime;
-            float t = elapsed / halfDuration;
-            transform.localScale = new Vector3(Mathf.Lerp(0f, originalScale.x, t), originalScale.y, originalScale.z);
-            yield return null;
-        }
-
-        transform.localScale = originalScale;
-        isTurning = false;
-        turnCoroutine = null;
+        transform.localScale = targetScale;
     }
 }

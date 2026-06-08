@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameSceneManager : MonoBehaviour
 {
@@ -10,8 +11,25 @@ public class GameSceneManager : MonoBehaviour
         if (!CheckPlayerData())
             return;
 
+        ConfigureCanvasScaler();
         InitializeCommonUI();
         OnSceneReady();
+    }
+
+    private void ConfigureCanvasScaler()
+    {
+        CanvasScaler[] scalers = FindObjectsOfType<CanvasScaler>();
+        foreach (var scaler in scalers)
+        {
+            if (scaler == null) continue;
+
+            scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            scaler.referenceResolution = new Vector2(1920f, 1080f);
+            scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
+            scaler.matchWidthOrHeight = 0.5f;
+
+            Debug.Log("[GameSceneManager] Automatically configured UI CanvasScaler (" + scaler.gameObject.name + ") for responsive screen layout (1920x1080, Match 0.5)");
+        }
     }
 
     protected bool CheckPlayerData()
@@ -41,7 +59,6 @@ public class GameSceneManager : MonoBehaviour
 
     protected virtual void OnSceneReady()
     {
-        // 各シーン固有処理
     }
 
     public void LoadScene(string sceneName)

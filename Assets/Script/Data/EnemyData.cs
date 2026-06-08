@@ -11,4 +11,7 @@ public class EnemyData : ScriptableObject
     public Sprite enemySprite;
     public GameObject enemyPrefab; // Fallback to ZakoPrefab if null
     public RuntimeAnimatorController animatorController;
+
+    [Tooltip("Size ratio relative to player height. Default is 0.6 (60% of player).")]
+    public float heightRatio = 0.6f;
 }
