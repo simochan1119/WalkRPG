@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 public class StepManager : MonoBehaviour
 {
     public static StepManager Instance;
+    public const int MaxUsableSteps = 10000;
 
     [Header("Status")]
     public int CurrentSteps { get; private set; }
@@ -70,7 +71,7 @@ public class StepManager : MonoBehaviour
 
         if (stepSensor == null)
         {
-            Debug.LogWarning("•à”ƒZƒ“ƒT[‚È‚µ");
+            Debug.LogWarning("æ­©æ•°ã‚»ãƒ³ã‚µãƒ¼ãªã—");
             return;
         }
 
@@ -83,7 +84,7 @@ public class StepManager : MonoBehaviour
             0
         );
 
-        Debug.Log("•à”ƒZƒ“ƒT[ŠJn");
+        Debug.Log("æ­©æ•°ã‚»ãƒ³ã‚µãƒ¼é–‹å§‹");
     }
 #endif
 
@@ -98,14 +99,14 @@ public class StepManager : MonoBehaviour
 #endif
 
 #if UNITY_EDITOR
-        // Unity Editor—pƒeƒXƒg
-        // ƒXƒy[ƒXƒL[‚Å1•à’Ç‰Á
+        // Unity Editorç”¨ãƒ†ã‚¹ãƒˆ
+        // ã‚¹ãƒšãƒ¼ã‚¹ã‚­ãƒ¼ã§1æ­©è¿½åŠ 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             AddGameSteps(1);
         }
 
-        // ‰Ÿ‚µ‚Á‚Ï‚È‚µƒeƒXƒgF1•b‚²‚Æ‚É1•à
+        // æŠ¼ã—ã£ã±ãªã—ãƒ†ã‚¹ãƒˆï¼š1ç§’ã”ã¨ã«1æ­©
         if (Input.GetKey(KeyCode.T))
         {
             editorStepTimer += Time.deltaTime;
@@ -138,7 +139,7 @@ public class StepManager : MonoBehaviour
 
         string today = DateTime.Now.ToString("yyyy-MM-dd");
 
-        // ‰‰ñ
+        // åˆå›
         if (player.lastSensorSteps <= 0)
         {
             player.lastSensorSteps = sensorSteps;
@@ -147,28 +148,28 @@ public class StepManager : MonoBehaviour
 
             CurrentSteps = player.totalSteps;
 
-            Debug.Log("•à”ƒZƒ“ƒT[‰Šú‰»: " + sensorSteps);
+            Debug.Log("æ­©æ•°ã‚»ãƒ³ã‚µãƒ¼åˆæœŸåŒ–: " + sensorSteps);
             return;
         }
 
-        // “ú•t‚ª•Ï‚í‚Á‚½‚ç¡“ú•à”‚ğƒŠƒZƒbƒg
+        // æ—¥ä»˜ãŒå¤‰ã‚ã£ãŸã‚‰ä»Šæ—¥æ­©æ•°ã‚’ãƒªã‚»ãƒƒãƒˆ
         if (player.lastStepDate != today)
         {
             player.todaySteps = 0;
             player.todayBaseSensorSteps = sensorSteps;
             player.lastStepDate = today;
 
-            Debug.Log("“ú•t•ÏXF¡“ú‚Ì•à”‚ğƒŠƒZƒbƒg");
+            Debug.Log("æ—¥ä»˜å¤‰æ›´ï¼šä»Šæ—¥ã®æ­©æ•°ã‚’ãƒªã‚»ãƒƒãƒˆ");
         }
 
-        // ’[––Ä‹N“®‚È‚Ç‚ÅƒZƒ“ƒT[’l‚ª¬‚³‚­‚È‚Á‚½ê‡
+        // ç«¯æœ«å†èµ·å‹•ãªã©ã§ã‚»ãƒ³ã‚µãƒ¼å€¤ãŒå°ã•ããªã£ãŸå ´åˆ
         if (sensorSteps < player.lastSensorSteps)
         {
             player.lastSensorSteps = sensorSteps;
             player.todayBaseSensorSteps = sensorSteps;
             player.todaySteps = 0;
 
-            Debug.LogWarning("•à”ƒZƒ“ƒT[ƒŠƒZƒbƒgŒŸ’m");
+            Debug.LogWarning("æ­©æ•°ã‚»ãƒ³ã‚µãƒ¼ãƒªã‚»ãƒƒãƒˆæ¤œçŸ¥");
             return;
         }
 
@@ -181,7 +182,7 @@ public class StepManager : MonoBehaviour
 
         AddGameSteps(diff);
 
-        // ¡“ú‚Ì•à”‚Íu¡“ú‚ÌŠî€’lv‚©‚çŒvZ
+        // ä»Šæ—¥ã®æ­©æ•°ã¯ã€Œä»Šæ—¥ã®åŸºæº–å€¤ã€ã‹ã‚‰è¨ˆç®—
         player.todaySteps = Mathf.Max(
             0,
             sensorSteps - player.todayBaseSensorSteps
@@ -202,9 +203,9 @@ public class StepManager : MonoBehaviour
             return;
 
         player.totalSteps += amount;
-        player.usableSteps += amount;
+        player.usableSteps = Mathf.Min(player.usableSteps + amount, MaxUsableSteps);
 
-        // ‹ŒstepsŒİŠ·
+        // æ—§stepsäº’æ›
         player.steps = player.totalSteps;
 
         CurrentSteps = player.totalSteps;
@@ -212,7 +213,7 @@ public class StepManager : MonoBehaviour
         unsavedSteps += amount;
         lastStepTime = Time.time;
 
-        Debug.Log("•à”’Ç‰Á: " + amount + " / –¢•Û‘¶: " + unsavedSteps);
+        Debug.Log("æ­©æ•°è¿½åŠ : " + amount + " / æœªä¿å­˜: " + unsavedSteps);
 
         if (unsavedSteps >= saveStepInterval)
         {
@@ -245,26 +246,26 @@ public class StepManager : MonoBehaviour
 
         unsavedSteps = 0;
 
-        Debug.Log("•à”•Û‘¶Š®—¹");
+        Debug.Log("æ­©æ•°ä¿å­˜å®Œäº†");
     }
 
     async void OnApplicationPause(bool pause)
     {
         if (pause)
         {
-            Debug.Log("ƒoƒbƒNƒOƒ‰ƒEƒ“ƒh‚ÖˆÚsF•à”•Û‘¶");
+            Debug.Log("ãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ã¸ç§»è¡Œï¼šæ­©æ•°ä¿å­˜");
             await SaveStepsNow();
         }
         else
         {
-            Debug.Log("ƒAƒvƒŠ•œ‹AF•à”“¯Šú");
+            Debug.Log("ã‚¢ãƒ—ãƒªå¾©å¸°ï¼šæ­©æ•°åŒæœŸ");
             await SyncSteps();
         }
     }
 
     async void OnApplicationQuit()
     {
-        Debug.Log("ƒAƒvƒŠI—¹F•à”•Û‘¶");
+        Debug.Log("ã‚¢ãƒ—ãƒªçµ‚äº†ï¼šæ­©æ•°ä¿å­˜");
         await SaveStepsNow();
     }
 

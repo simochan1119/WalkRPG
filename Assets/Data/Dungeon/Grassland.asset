@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Grassland
   m_EditorClassIdentifier: Assembly-CSharp::DungeonStageData
   stageName: GrassLand
-  totalDistance: 300
+  totalDistance: 110
   eventDetectDistance: 10
   eventPoints:
   - distance: 100

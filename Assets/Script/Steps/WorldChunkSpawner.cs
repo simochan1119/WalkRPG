@@ -10,8 +10,8 @@ public class WorldChunkSpawner : MonoBehaviour
     public GameObject chunkB;
 
     [Header("Loop Settings")]
-    [Tooltip("The actual width of a single chunk in Unity units. Used to align and warp chunks seamlessly.")]
-    public float fixedChunkWidth = 60f;
+    [Tooltip("Fallback width of a single chunk in Unity units if dynamic calculation fails.")]
+    public float fixedChunkWidth = 200f;
 
     [Header("Position")]
     public float startX = 0f;
@@ -22,6 +22,7 @@ public class WorldChunkSpawner : MonoBehaviour
     public bool showDebugLog = false;
 
     private GameObject[] pooledChunks = new GameObject[3];
+    private float calculatedChunkWidth;
 
     void Start()
     {
@@ -39,11 +40,29 @@ public class WorldChunkSpawner : MonoBehaviour
             return;
         }
 
+        // Calculate chunk width dynamically from chunkA
+        calculatedChunkWidth = GetPrefabWidth(chunkA);
+        if (calculatedChunkWidth <= 0.1f)
+        {
+            calculatedChunkWidth = fixedChunkWidth; // Fallback
+            if (showDebugLog)
+            {
+                Debug.LogWarning($"[WorldChunkSpawner] Could not calculate chunk width dynamically. Falling back to inspector value: {calculatedChunkWidth}");
+            }
+        }
+        else
+        {
+            if (showDebugLog)
+            {
+                Debug.Log($"[WorldChunkSpawner] Dynamically calculated chunk width: {calculatedChunkWidth} units.");
+            }
+        }
+
         // Instantiate exactly 3 chunks (A, B, A) to cover enough view distance for the camera
         GameObject[] prefabs = new GameObject[] { chunkA, chunkB, chunkA };
         for (int i = 0; i < pooledChunks.Length; i++)
         {
-            float spawnX = startX + (i * fixedChunkWidth);
+            float spawnX = startX + (i * calculatedChunkWidth);
             Vector3 pos = new Vector3(spawnX, chunkY, chunkZ);
             pooledChunks[i] = Instantiate(prefabs[i], pos, Quaternion.identity, transform);
             pooledChunks[i].name = prefabs[i].name + "_Loop_" + i;
@@ -51,8 +70,45 @@ public class WorldChunkSpawner : MonoBehaviour
 
         if (showDebugLog)
         {
-            Debug.Log($"[WorldChunkSpawner] Initialized 3-chunk pool. Total width covered: {fixedChunkWidth * 3} units.");
+            Debug.Log($"[WorldChunkSpawner] Initialized 3-chunk pool. Total width covered: {calculatedChunkWidth * 3} units.");
         }
+    }
+
+    private float GetPrefabWidth(GameObject prefab)
+    {
+        // 1. Try Terrain component first
+        var terrain = prefab.GetComponentInChildren<Terrain>();
+        if (terrain != null && terrain.terrainData != null)
+        {
+            return terrain.terrainData.size.x;
+        }
+
+        // 2. Instantiate temporary copy to measure bounds
+        GameObject tempObj = Instantiate(prefab, Vector3.zero, Quaternion.identity);
+        tempObj.SetActive(false);
+        var renderers = tempObj.GetComponentsInChildren<Renderer>();
+        
+        float width = 0f;
+        if (renderers != null && renderers.Length > 0)
+        {
+            float minX = float.MaxValue;
+            float maxX = float.MinValue;
+            bool hasValidBounds = false;
+            foreach (var r in renderers)
+            {
+                if (r is ParticleSystemRenderer) continue;
+                minX = Mathf.Min(minX, r.bounds.min.x);
+                maxX = Mathf.Max(maxX, r.bounds.max.x);
+                hasValidBounds = true;
+            }
+            if (hasValidBounds)
+            {
+                width = maxX - minX;
+            }
+        }
+        
+        Destroy(tempObj);
+        return width;
     }
 
     void LateUpdate()
@@ -70,7 +126,7 @@ public class WorldChunkSpawner : MonoBehaviour
 
             float chunkX = chunk.transform.position.x;
 
-            if (playerX - chunkX > fixedChunkWidth * 1.1f)
+            if (playerX - chunkX > calculatedChunkWidth * 1.1f)
             {
                 // Find the current furthest forward chunk's X position
                 float maxForwardX = -999999f;
@@ -82,7 +138,7 @@ public class WorldChunkSpawner : MonoBehaviour
                     }
                 }
 
-                float newX = maxForwardX + fixedChunkWidth;
+                float newX = maxForwardX + calculatedChunkWidth;
                 chunk.transform.position = new Vector3(newX, chunkY, chunkZ);
 
                 if (showDebugLog)
@@ -91,7 +147,7 @@ public class WorldChunkSpawner : MonoBehaviour
                 }
             }
             // Warp backward (Moving Left - Village fallback)
-            else if (chunkX - playerX > fixedChunkWidth * 1.9f)
+            else if (chunkX - playerX > calculatedChunkWidth * 1.9f)
             {
                 // Find the current furthest backward chunk's X position
                 float minBackwardX = 999999f;
@@ -103,7 +159,7 @@ public class WorldChunkSpawner : MonoBehaviour
                     }
                 }
 
-                float newX = minBackwardX - fixedChunkWidth;
+                float newX = minBackwardX - calculatedChunkWidth;
                 chunk.transform.position = new Vector3(newX, chunkY, chunkZ);
 
                 if (showDebugLog)

@@ -216,7 +216,12 @@ public class DungeonManager : GameSceneManager
             nextEventIndex++;
 
             // 1. Play Exclamation/Surprise VFX if set
-            if (bikkuriVFX != null)
+            EmoteController emoteController = player != null ? player.GetComponent<EmoteController>() : null;
+            if (emoteController != null)
+            {
+                await emoteController.PlayExclamationAsync(1.0f);
+            }
+            else if (bikkuriVFX != null)
             {
                 bikkuriVFX.SetActive(true);
                 await System.Threading.Tasks.Task.Delay(1000);

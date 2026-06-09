@@ -36,7 +36,7 @@ public class FirebaseManager : MonoBehaviour
 
         if (status != DependencyStatus.Available)
         {
-            Debug.LogError("Firebase‰Šú‰»¸”s: " + status);
+            Debug.LogError("FirebaseåˆæœŸåŒ–å¤±æ•—: " + status);
             return;
         }
 
@@ -53,7 +53,7 @@ public class FirebaseManager : MonoBehaviour
             User = Auth.CurrentUser;
         }
 
-        Debug.Log("ƒƒOƒCƒ“¬Œ÷ UID: " + User.UserId);
+        Debug.Log("ãƒ­ã‚°ã‚¤ãƒ³æˆåŠŸ UID: " + User.UserId);
 
         await LoadPlayerData();
 
@@ -69,19 +69,19 @@ public class FirebaseManager : MonoBehaviour
         {
             CurrentPlayer = snapshot.ConvertTo<PlayerData>();
             NormalizePlayerData();
-            Debug.Log("Šù‘¶ƒ†[ƒU[ƒf[ƒ^“Ç: " + CurrentPlayer.name);
+            Debug.Log("æ—¢å­˜ãƒ¦ãƒ¼ã‚¶ãƒ¼ãƒ‡ãƒ¼ã‚¿èª­è¾¼: " + CurrentPlayer.name);
         }
         else
         {
             CurrentPlayer = null;
-            Debug.Log("ƒ†[ƒU[ƒf[ƒ^–¢ì¬");
+            Debug.Log("ãƒ¦ãƒ¼ã‚¶ãƒ¼ãƒ‡ãƒ¼ã‚¿æœªä½œæˆ");
         }
     }
 
     public async Task CreateOrUpdatePlayer(string playerName)
     {
         if (string.IsNullOrWhiteSpace(playerName))
-            playerName = "‚È‚È‚µ—EÒ";
+            playerName = "ãªãªã—å‹‡è€…";
 
         PlayerData data = new PlayerData
         {
@@ -112,7 +112,7 @@ public class FirebaseManager : MonoBehaviour
 
         await SavePlayer();
 
-        Debug.Log("ƒ†[ƒU[ƒf[ƒ^•Û‘¶Š®—¹: " + CurrentPlayer.name);
+        Debug.Log("ãƒ¦ãƒ¼ã‚¶ãƒ¼ãƒ‡ãƒ¼ã‚¿ä¿å­˜å®Œäº†: " + CurrentPlayer.name);
     }
 
     private void NormalizePlayerData()
@@ -124,7 +124,7 @@ public class FirebaseManager : MonoBehaviour
             CurrentPlayer.uid = User.UserId;
 
         if (string.IsNullOrWhiteSpace(CurrentPlayer.name))
-            CurrentPlayer.name = "‚È‚È‚µ—EÒ";
+            CurrentPlayer.name = "ãªãªã—å‹‡è€…";
 
         if (CurrentPlayer.level <= 0)
             CurrentPlayer.level = 1;
@@ -146,6 +146,9 @@ public class FirebaseManager : MonoBehaviour
         if (CurrentPlayer.usableSteps < 0)
             CurrentPlayer.usableSteps = 0;
 
+        if (CurrentPlayer.usableSteps > StepManager.MaxUsableSteps)
+            CurrentPlayer.usableSteps = StepManager.MaxUsableSteps;
+
         if (CurrentPlayer.todaySteps < 0)
             CurrentPlayer.todaySteps = 0;
 
@@ -166,13 +169,13 @@ public class FirebaseManager : MonoBehaviour
     {
         if (CurrentPlayer == null)
         {
-            Debug.LogWarning("•Û‘¶¸”s: CurrentPlayer ‚ª null");
+            Debug.LogWarning("ä¿å­˜å¤±æ•—: CurrentPlayer ãŒ null");
             return;
         }
 
         if (DB == null || User == null)
         {
-            Debug.LogWarning("•Û‘¶¸”s: Firebase–¢‰Šú‰»");
+            Debug.LogWarning("ä¿å­˜å¤±æ•—: FirebaseæœªåˆæœŸåŒ–");
             return;
         }
 
@@ -184,7 +187,7 @@ public class FirebaseManager : MonoBehaviour
 
         await docRef.SetAsync(CurrentPlayer, SetOptions.MergeAll);
 
-        Debug.Log("ƒvƒŒƒCƒ„[ƒf[ƒ^•Û‘¶");
+        Debug.Log("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãƒ‡ãƒ¼ã‚¿ä¿å­˜");
     }
 
     public async Task AddGold(int amount)
@@ -209,7 +212,7 @@ public class FirebaseManager : MonoBehaviour
             return;
 
         CurrentPlayer.totalSteps += amount;
-        CurrentPlayer.usableSteps += amount;
+        CurrentPlayer.usableSteps = Mathf.Min(CurrentPlayer.usableSteps + amount, StepManager.MaxUsableSteps);
         CurrentPlayer.steps = CurrentPlayer.totalSteps;
 
         await SavePlayer();
@@ -225,7 +228,7 @@ public class FirebaseManager : MonoBehaviour
 
         if (CurrentPlayer.usableSteps < amount)
         {
-            Debug.Log("•à”•s‘«");
+            Debug.Log("æ­©æ•°ä¸è¶³");
             return false;
         }
 
@@ -264,7 +267,7 @@ public class FirebaseManager : MonoBehaviour
 
         await SavePlayer();
 
-        Debug.Log("HP‘S‰ñ•œ");
+        Debug.Log("HPå…¨å›å¾©");
     }
 
     public async Task DamagePlayer(int damage)

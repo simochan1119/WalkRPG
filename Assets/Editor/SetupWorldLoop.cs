@@ -65,7 +65,7 @@ public static class SetupWorldLoop
         spawner.player = playerObj.transform;
         spawner.chunkA = fieldPrefab;
         spawner.chunkB = fieldPrefab;
-        spawner.fixedChunkWidth = 60f;
+        spawner.fixedChunkWidth = 200f;
         spawner.startX = pos.x;
         spawner.chunkY = pos.y;
         spawner.chunkZ = pos.z;
